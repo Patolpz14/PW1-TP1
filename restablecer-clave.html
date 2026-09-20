@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocablo - Restablecer Contraseña</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <header class="cabecera-principal">
+        <h1>Vocablo</h1>
+        <p>Aprende Inglés, Alemán y Chino gratis y de forma divertida</p>
+    </header>
+
+    <main class="contenedor-principal">
+        <section class="tarjeta-login">
+            <h2>Crear nueva contraseña</h2>
+
+            <p class="texto-instrucciones">Ingresa tu nueva clave de acceso. Asegúrate de que sea segura y fácil de
+                recordar.</p>
+
+            <!-- Redirige al login simulando el éxito de la operación -->
+            <form action="index.html" method="POST" class="formulario-login">
+
+                <label for="pass-nueva">
+                    <span>Nueva contraseña:</span>
+                    <!-- minlength="8" agrega validación nativa de HTML5 -->
+                    <input type="password" id="pass-nueva" name="pass-nueva" placeholder="Mínimo 8 caracteres"
+                        minlength="8" required>
+                </label>
+
+                <label for="pass-confirma">
+                    <span>Confirmar contraseña:</span>
+                    <input type="password" id="pass-confirma" name="pass-confirma"
+                        placeholder="Repite tu nueva contraseña" minlength="8" required>
+                </label>
+
+                <button type="submit" class="btn-primario">Restablecer y Entrar</button>
+            </form>
+
+            <nav class="enlaces-secundarios">
+                <a href="index.html">← Volver al inicio de sesión</a>
+            </nav>
+        </section>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocablo - Recuperar Contraseña</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <header class="cabecera-principal">
+        <h1>Vocablo</h1>
+        <p>Aprende Inglés, Alemán y Chino gratis y de forma divertida</p>
+    </header>
+
+    <main class="contenedor-principal">
+        <section class="tarjeta-login">
+            <h2>Recuperar Contraseña</h2>
+            <p class="texto-instrucciones">
+                Ingresa tu correo electrónico y te enviaremos las instrucciones para restablecer tu clave.
+            </p>
+
+            <form action="restablecer-clave.html" method="POST" class="formulario-login">
+                <label for="email">
+                    <span>Correo electrónico:</span>
+                    <input type="email" id="email" name="email" placeholder="usuario@ejemplo.com" required>
+                </label>
+
+                <button type="submit" class="btn-primario">Enviar Instrucciones</button>
+            </form>
+
+            <nav class="enlaces-secundarios">
+                <a href="index.html">← Volver al inicio de sesión</a>
+            </nav>
+        </section>
+    </main>
+
+</body>
+
+</html>
