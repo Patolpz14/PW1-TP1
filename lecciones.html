@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocablo - Lección de Inglés</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/lecciones.css">
+</head>
+
+<body>
+
+    <!-- CABECERA DE LA LECCIÓN (Navegación simplificada) -->
+    <header class="cabecera-leccion">
+        <nav class="nav-leccion">
+            <!-- Botón para abandonar la lección y volver al panel -->
+            <a href="dashboard.html" class="btn-secundario" aria-label="Cerrar lección">✖ Salir</a>
+
+            <!-- Barra de progreso visual -->
+            <div class="contenedor-progreso">
+                <div class="progreso-actual" style="width: 50%;"></div> <!-- como se hace la barra de progreso?  -->
+            </div>
+
+            <!-- Contador de vidas -->
+            <span class="vidas-restantes" aria-label="3 vidas restantes">❤️ 3</span> <!--como funciona el aria-label -->
+        </nav>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL: EL EJERCICIO -->
+    <main class="contenedor-principal-leccion">
+
+        <section class="area-ejercicio">
+            <h2>¿Cómo se dice "Manzana"?</h2>
+
+            <!-- Formulario de validación sin JavaScript -->
+            <form action="dashboard.html" method="POST" class="formulario-leccion">
+                <!--  por que nos lleva a dashboard? -->
+
+                <!-- Agrupación semántica de opciones -->
+                <fieldset class="grupo-opciones"> <!--  como funciona el fieldset  -->
+                    <!-- Legend oculto visualmente pero leído por lectores de pantalla -->
+                    <legend class="oculto-visual">Selecciona la traducción correcta</legend>
+
+                    <label class="tarjeta-opcion">
+                        <input type="radio" name="traduccion" value="orange" required>
+                        <span class="texto-opcion">Orange</span>
+                    </label>
+
+                    <label class="tarjeta-opcion">
+                        <input type="radio" name="traduccion" value="apple" required>
+                        <span class="texto-opcion">Apple</span>
+                    </label>
+
+                    <label class="tarjeta-opcion">
+                        <input type="radio" name="traduccion" value="banana" required>
+                        <span class="texto-opcion">Banana</span>
+                    </label>
+                </fieldset>
+
+                <!-- Área inferior con el botón de envío -->
+                <footer class="controles-leccion">
+                    <button type="submit" class="btn-primario">Comprobar respuesta</button>
+                </footer>
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

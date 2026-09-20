@@ -1,0 +1,143 @@
+/* =========================================
+   GLOBAL.CSS - Estilos base para Vocablo
+   ========================================= */
+
+/* 1. RESET UNIVERSAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1. NAVEGACIÓN SUPERIOR (Flexbox - 1 Dimensión) */
+.cabecera-dashboard {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* sombra */
+}
+
+.nav-principal {
+    display: flex;
+    justify-content: space-between;
+    /* Empuja el logo a la izq y el menú a la der */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Centra la barra de navegación en monitores muy anchos */
+}
+
+.nav-principal a.activo {
+    color: #3b82f6;
+    /* Un color azul llamativo */
+    font-weight: 900;
+    /* Letra más gruesa que los demás enlaces */
+    border-bottom: 2px solid #3b82f6;
+    /* Un subrayado elegante */
+}
+
+.menu-usuario {
+    display: flex;
+    /* ordena por defecto los <li> uno al lado del otro position :row */
+    list-style: none;
+    /* Quita los puntitos a los <li> */
+    gap: 1.5rem;
+    /* Separación automática entre los enlaces */
+    /* 24px*/
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    /* grosor */
+}
+
+/* 2. ESTILOS BASE DEL DOCUMENTO */
+body {
+    /* Usamos fuentes seguras recomendadas hasta importar una web font */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    /* Un tono gris-celeste muy suave y moderno */
+    color: #333333;
+    font-size: 100%;
+    /* Establece la base (aprox 16px) para usar 'em' y 'rem' */
+    line-height: 1.5;
+}
+
+/* 3. TIPOGRAFÍA Y ENLACES */
+h1,
+h2,
+h3 {
+    color: #1a202c;
+    margin-bottom: 0.5em;
+    /* Unidades relativas para márgenes */
+}
+
+a {
+    color: #3182ce;
+    text-decoration: none;
+    /* Quitamos el subrayado azul por defecto */
+    font-weight: bold;
+}
+
+/* Pseudo-clase para el estado interactivo del enlace */
+a:hover {
+    text-decoration: underline;
+    color: #2b6cb0;
+}
+
+/* 4. BOTONES GLOBALES */
+.btn-primario {
+    display: block;
+    /* Comportamiento de bloque para ocupar todo el ancho disponible */
+    width: 100%;
+    background-color: #58cc02;
+    /* Verde vibrante estilo plataforma de idiomas */
+    color: #ffffff;
+    padding: 0.8em 1.2em;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    /* Bordes bien redondeados y amigables */
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primario:hover {
+    background-color: #46a302;
+}
+
+/* 5. CAMPOS DE FORMULARIO GLOBALES */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 0.8em;
+    margin-top: 0.4em;
+    margin-bottom: 1.2em;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    /* Quita el borde por defecto al hacer clic */
+}
+
+/* Estado focus para accesibilidad visual cuando el usuario escribe */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #3182ce;
+}
+
+@media (max-width: 37.5em) {
+    .cabecera-dashboard {
+        padding: 1rem;
+    }
+
+    .nav-principal {
+        flex-direction: column;
+        /* Apilamos el Logo arriba del Menú */
+        gap: 1rem;
+    }
+}

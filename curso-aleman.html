@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocablo - Ruta de Alemán</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/cursos.css">
+</head>
+
+<body>
+
+    <!-- CABECERA SUPERIOR -->
+    <header class="cabecera-dashboard">
+        <nav class="nav-principal">
+            <a href="dashboard.html" class="enlace-volver">← Volver al Panel</a>
+            <h1 class="titulo-curso">Alemán - Nivel Básico</h1>
+            <div class="estadistica-rapida">⭐ 450 XP</div>
+        </nav>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL: MAPA DE LECCIONES -->
+    <main class="contenedor-ruta">
+
+        <!-- UNIDAD 1 -->
+        <section class="unidad-curso">
+            <header class="cabecera-unidad">
+                <h2>Unidad 1: Saludos y Presentaciones</h2>
+                <p>Aprende a presentarte y saludar a otros.</p>
+            </header>
+
+            <!-- Lista ORDENADA de lecciones -->
+            <ol class="camino-lecciones">
+                <!-- Lección Completada -->
+                <li class="leccion completada">
+                    <a href="lecciones.html" class="btn-leccion" aria-label="Lección 1 completada, repasar">
+                        <span class="icono-estado">✔</span>
+                        <span class="nombre-leccion">1. Lo básico</span>
+                    </a>
+                </li>
+
+                <!-- Lección Activa (La que toca ahora) -->
+                <li class="leccion activa">
+                    <a href="lecciones.html" class="btn-leccion">
+                        <span class="icono-estado">⭐</span>
+                        <span class="nombre-leccion">2. Presentaciones</span>
+                    </a>
+                </li>
+
+                <!-- Lección Bloqueada -->
+                <li class="leccion bloqueada">
+                    <!-- Fíjate que no tiene href, no se puede hacer clic -->
+                    <a class="btn-leccion" aria-disabled="true">
+                        <span class="icono-estado">🔒</span>
+                        <span class="nombre-leccion">3. Despedidas</span>
+                    </a>
+                </li>
+            </ol>
+        </section>
+
+        <!-- UNIDAD 2 (Bloqueada) -->
+        <section class="unidad-curso bloqueada">
+            <header class="cabecera-unidad">
+                <h2>Unidad 2: Comida y Bebida</h2>
+                <p>Pide tu comida favorita en un restaurante.</p>
+            </header>
+            <ol class="camino-lecciones">
+                <li class="leccion bloqueada">
+                    <a class="btn-leccion" aria-disabled="true">
+                        <span class="icono-estado">🔒</span>
+                        <span class="nombre-leccion">1. En el restaurante</span>
+                    </a>
+                </li>
+            </ol>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

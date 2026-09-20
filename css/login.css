@@ -1,0 +1,132 @@
+/* =========================================
+   LOGIN.CSS - Estilos de la Vista de Inicio
+   ========================================= */
+
+/* 1. CABECERA INSTITUCIONAL */
+.cabecera-principal {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* Sombra muy sutil abajo */
+}
+
+.cabecera-principal h1 {
+    color: #58cc02;
+    /* Color principal de la marca Vocablo */
+    font-size: 2.5rem;
+    margin-bottom: 0.2em;
+}
+
+.cabecera-principal p {
+    color: #777777;
+    font-size: 1rem;
+}
+
+/* 2. CONTENEDOR CENTRAL (El truco de Flexbox) */
+.contenedor-principal {
+    display: flex;
+    justify-content: center;
+    /* Centrado horizontal */
+    align-items: center;
+    /* Centrado vertical */
+
+    /* 100vh es toda la altura de la pantalla, le restamos la altura aprox de la cabecera */
+    min-height: calc(100vh - 115px);
+    padding: 2rem;
+}
+
+/* 3. TARJETA DE INICIO DE SESIÓN */
+.tarjeta-login {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    /* Ancho máximo en monitores grandes */
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    /* Efecto de tarjeta flotante */
+}
+
+.tarjeta-login h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* 4. FORMULARIO INTERNO */
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+    /* Apila los elementos de arriba hacia abajo */
+}
+
+.formulario-login label {
+    display: flex;
+    flex-direction: column;
+    /* Pone el texto del span arriba del input */
+    font-weight: bold;
+    color: #555555;
+    font-size: 0.95rem;
+}
+
+.formulario-login span {
+    margin-bottom: 0.3rem;
+    /* Separación sutil entre el texto y la caja de tipeo */
+}
+
+/* 5. ENLACES SECUNDARIOS */
+.enlaces-secundarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    /* Espaciado automático entre los enlaces */
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eeeeee;
+    /* Línea divisoria gris claro */
+}
+
+.enlaces-secundarios a {
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
+
+/* 1. VISTA TABLET (max-width: 768px -> 48em) */
+@media (max-width: 48em) {
+    .tarjeta-login {
+        max-width: 80%;
+        /* La tarjeta ocupa más espacio relativo en la pantalla */
+        padding: 2.5rem 2rem;
+        /* Reducimos levemente el espacio interno */
+    }
+}
+
+/* 2. VISTA MOBILE (max-width: 600px -> 37.5em) */
+@media (max-width: 37.5em) {
+    .contenedor-principal {
+        padding: 1rem;
+        align-items: flex-start;
+        /* Empujamos el formulario hacia la parte superior */
+    }
+
+    .tarjeta-login {
+        max-width: 100%;
+        padding: 1.5rem 1rem;
+        border-radius: 0;
+        box-shadow: none;
+        /* Quitamos el efecto flotante */
+        background-color: transparent;
+        /* Fundimos el formulario con el fondo general */
+    }
+
+    .cabecera-principal {
+        padding: 1rem;
+    }
+
+    .cabecera-principal h1 {
+        font-size: 2rem;
+        /* Reducimos el tamaño del título principal para evitar desbordes */
+    }
+}

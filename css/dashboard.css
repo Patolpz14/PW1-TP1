@@ -1,0 +1,104 @@
+/* =========================================
+   DASHBOARD.CSS - Estilos del Panel Principal
+   ========================================= */
+
+/* 2. ESTRUCTURA PRINCIPAL (CSS Grid - 2 Dimensiones) */
+.contenedor-dashboard {
+    display: grid;
+    /* Divide la pantalla en 4 partes: 3 para los cursos, 1 para las estadísticas */
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    /* Espacio entre la sección de cursos y el panel lateral */
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* 3. GRILLA DE CURSOS (Grid Interno) */
+.grilla-cursos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas de tarjetas exactamente iguales */
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tarjeta-curso {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    /* Convertimos la tarjeta en una columna Flexbox */
+}
+
+.tarjeta-curso h3 {
+    font-size: 1.3rem;
+}
+
+.tarjeta-curso p {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    /* esta mal en el apunte. Valor por defecto: 0 */
+    /* Truco de oro: empuja el botón siempre hacia el fondo */
+    /* no hace falta volver a poner el display: flex, hereda el de .tarjeta-curso */
+}
+
+/* 4. PANEL LATERAL DE ESTADÍSTICAS */
+.panel-estadisticas {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    height: fit-content;
+    /* Evita que el panel se estire hacia abajo si hay muchos cursos */
+}
+
+.lista-estadisticas {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.lista-estadisticas li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    /* Línea separadora entre estadísticas */
+    font-size: 1.1rem;
+}
+
+.lista-estadisticas li:last-child {
+    border-bottom: none;
+    /* Le sacamos la raya al último renglón para que quede prolijo */
+    /* como funciona esto? */
+}
+
+/* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
+
+/* VISTA TABLET (max-width: 768px -> 48em) */
+@media (max-width: 48em) {
+    .contenedor-dashboard {
+        /* Pasamos la estructura mayor a 1 sola columna. El panel lateral cae abajo de los cursos */
+        grid-template-columns: 1fr;
+    }
+
+    .grilla-cursos {
+        /* Achicamos la grilla de idiomas de 3 a 2 tarjetas por fila */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* VISTA MOBILE (max-width: 600px -> 37.5em) */
+@media (max-width: 37.5em) {
+
+    .contenedor-dashboard {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .grilla-cursos {
+        /* Las tarjetas colapsan a 1 sola por fila, ocupando el 100% del ancho */
+        grid-template-columns: 1fr;
+    }
+}
