@@ -1,0 +1,136 @@
+/* =========================================
+   RANKING.CSS - Tabla de Clasificación
+   ========================================= */
+
+.contenedor-ranking {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* 1. CONTROLES Y BANNER */
+.controles-ranking {
+    display: flex;
+    justify-content: flex-end;
+    /* Empuja el selector a la derecha */
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.controles-ranking label {
+    font-weight: 700;
+    color: #374151;
+}
+
+.controles-ranking select {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.banner-liga {
+    background-color: #f59e0b;
+    /* Amarillo/Naranja como en el mockup */
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px 12px 0 0;
+    /* Bordes redondeados solo arriba */
+}
+
+.banner-liga h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.banner-liga p {
+    font-weight: 700;
+}
+
+/* 2. ESTRUCTURA DE LA TABLA */
+.contenedor-tabla {
+    /* Clave para el responsive en tablas */
+    overflow-x: auto;
+    background-color: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-top: none;
+    /* Evita doble borde con el banner */
+    border-radius: 0 0 12px 12px;
+    /* Bordes redondeados solo abajo */
+}
+
+.tabla-ranking {
+    width: 100%;
+    border-collapse: collapse;
+    /* Elimina los espacios entre las celdas nativas */
+    text-align: center;
+    min-width: 600px;
+    /* Evita que la tabla se aplaste demasiado en celulares */
+}
+
+/* Cabeceras de columna */
+.tabla-ranking th {
+    background-color: #f9fafb;
+    color: #4b5563;
+    padding: 1.2rem;
+    font-weight: 700;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+/* Celdas regulares */
+.tabla-ranking td {
+    padding: 1.2rem;
+    border-bottom: 1px solid #e5e7eb;
+    color: #111827;
+    vertical-align: middle;
+}
+
+/* 3. CONTENIDO INTERNO DE LAS CELDAS */
+.celda-estudiante {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.avatar-mini {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Avatar circular */
+    object-fit: cover;
+}
+
+/* 4. FILA RESALTADA (El Usuario Actual) */
+.fila-usuario-actual {
+    background-color: #eff6ff;
+    /* Fondo celeste claro */
+}
+
+.fila-usuario-actual td {
+    font-weight: 900;
+}
+
+/* Borde azul grueso en la primera celda para destacarlo más */
+.fila-usuario-actual td:first-child {
+    border-left: 4px solid #3b82f6;
+}
+
+.estado-ascenso {
+    font-weight: 700;
+}
+
+/* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
+@media (max-width: 48em) {
+    .contenedor-ranking {
+        padding: 0 1rem;
+    }
+
+    .controles-ranking {
+        justify-content: space-between;
+        /* En celulares, separa el texto del select */
+    }
+}

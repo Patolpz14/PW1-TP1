@@ -1,0 +1,109 @@
+/* =========================================
+   CURSOS.CSS - Ruta de Aprendizaje y Unidades
+   ========================================= */
+
+/* 1. CONTENEDOR DE LA RUTA */
+.contenedor-ruta {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* 2. TARJETA DE UNIDAD */
+.unidad-curso {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 2px solid #e5e7eb;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.unidad-curso.bloqueada {
+    opacity: 0.6;
+    background-color: #f9fafb;
+}
+
+.cabecera-unidad h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cabecera-unidad p {
+    color: #6b7280;
+}
+
+/* 3. CAMINO DE LECCIONES */
+.camino-lecciones {
+    list-style: none;
+    margin-top: 2rem;
+    padding-left: 1.5rem;
+    border-left: 3px dashed #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* 4. BOTONES DE CADA LECCIÓN */
+.leccion {
+    position: relative;
+}
+
+.btn-leccion {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: #111827;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    margin-left: -2.8rem;
+    width: fit-content;
+}
+
+.icono-estado {
+    font-size: 1.2rem;
+}
+
+/* ESTADOS INTERACTIVOS */
+.leccion.completada .btn-leccion {
+    background-color: #f0fdf4;
+    border-color: #86efac;
+}
+
+.leccion.activa .btn-leccion {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+    transform: scale(1.05);
+}
+
+.leccion.activa .btn-leccion:hover {
+    background-color: #eff6ff;
+}
+
+.btn-leccion[aria-disabled="true"] {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+    border-color: #e5e7eb;
+}
+
+/* RESPONSIVE WEB DESIGN */
+@media (max-width: 48em) {
+    .contenedor-ruta {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .unidad-curso {
+        padding: 1.5rem;
+    }
+
+    .btn-leccion {
+        width: 100%;
+        margin-left: -2.3rem;
+    }
+}

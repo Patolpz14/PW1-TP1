@@ -1,0 +1,184 @@
+/* =========================================
+   LECCIONES.CSS - Interfaz del Ejercicio
+   ========================================= */
+
+/* 1. CABECERA DE LA LECCIÓN Y PROGRESO */
+.cabecera-leccion {
+    background-color: #ffffff;
+    padding: 1.5rem 2rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.nav-leccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.btn-secundario {
+    text-decoration: none;
+    color: #6b7280;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Estilos de la barra de progreso nativa <progress> */
+.contenedor-progreso {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.barra-progreso {
+    width: 100%;
+    height: 1rem;
+    border-radius: 999px;
+    overflow: hidden;
+    border: none;
+    background-color: #f3f4f6;
+}
+
+/* Estilos nativos para WebKit (Chrome, Safari, Edge) */
+.barra-progreso::-webkit-progress-bar {
+    background-color: #f3f4f6;
+    border-radius: 999px;
+}
+
+.barra-progreso::-webkit-progress-value {
+    background-color: #22c55e;
+    border-radius: 999px;
+    transition: width 0.3s ease;
+}
+
+/* Estilos nativos para Firefox */
+.barra-progreso::-moz-progress-bar {
+    background-color: #22c55e;
+    border-radius: 999px;
+}
+
+.vidas-restantes {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #ef4444;
+}
+
+/* 2. CONTENEDOR DEL EJERCICIO */
+.contenedor-principal-leccion {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.area-ejercicio h2 {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* 3. FORMULARIO Y OPCIONES */
+.formulario-leccion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.grupo-opciones {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.oculto-visual {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+/* Tarjetas de opciones */
+.tarjeta-opcion {
+    display: block;
+    background-color: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tarjeta-opcion:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.tarjeta-opcion input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+
+/* Selector :has() para opción seleccionada */
+.tarjeta-opcion:has(input[type="radio"]:checked) {
+    background-color: #eff6ff;
+    border-color: #3b82f6;
+    box-shadow: 0 4px 0px #2563eb;
+    transform: translateY(-2px);
+}
+
+/* 4. BOTÓN DE ENVÍO */
+.controles-leccion {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.btn-primario {
+    width: 100%;
+    background-color: #3b82f6;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 0px #2563eb;
+    transition: all 0.1s ease;
+}
+
+.btn-primario:active {
+    box-shadow: 0 0px 0px #2563eb;
+    transform: translateY(4px);
+}
+
+/* --- RESPONSIVE WEB DESIGN --- */
+@media (max-width: 48em) {
+    .contenedor-principal-leccion {
+        margin: 2rem auto;
+    }
+}
+
+@media (max-width: 37.5em) {
+    .nav-leccion {
+        gap: 1rem;
+    }
+
+    .btn-secundario span {
+        display: none;
+    }
+
+    .area-ejercicio h2 {
+        font-size: 1.5rem;
+    }
+}

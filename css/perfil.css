@@ -1,0 +1,181 @@
+/* =========================================
+   PERFIL.CSS - Vista de Usuario y Ajustes
+   ========================================= */
+
+.contenedor-perfil {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.titulo-pagina {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #111827;
+}
+
+/* 1. LAYOUT PRINCIPAL (CSS Grid) */
+.layout-perfil {
+    display: grid;
+    /* La columna izquierda (perfil) ocupa 1 fracción, la derecha (formulario) ocupa 2 fracciones */
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: start;
+    /* Evita que la tarjeta izquierda se estire si el formulario es muy largo */
+}
+
+/* 2. TARJETAS COMPARTIDAS */
+.tarjeta-identidad,
+.tarjeta-ajustes {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 2px solid #e5e7eb;
+    padding: 2rem;
+}
+
+/* 3. COLUMNA IZQUIERDA: IDENTIDAD */
+.tarjeta-identidad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar-usuario {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* Esto es lo que lo hace circular */
+    object-fit: cover;
+    /* Evita que la foto se deforme */
+    margin-bottom: 1rem;
+    border: 4px solid #f3f4f6;
+}
+
+.usuario-arroba {
+    color: #6b7280;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.fecha-miembro {
+    font-size: 0.9rem;
+    color: #9ca3af;
+    margin-bottom: 2rem;
+}
+
+.logros-academicos {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.logro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logro-icono {
+    font-size: 1.5rem;
+}
+
+.logro-texto {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* 4. COLUMNA DERECHA: AJUSTES */
+.info-email {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.separador {
+    border: none;
+    border-top: 2px solid #f3f4f6;
+    margin: 2rem 0;
+}
+
+.formulario-ajustes h3 {
+    margin-bottom: 1.5rem;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.8rem;
+}
+
+.grupo-input label {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+/* Estilos de inputs y selects unificados */
+.grupo-input input,
+.grupo-input select {
+    padding: 0.8rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    /* Hereda la tipografía global */
+}
+
+.grupo-input input:focus,
+.grupo-input select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    /* Borde azul al escribir */
+}
+
+/* 5. BOTONERA */
+.acciones-perfil {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-primario,
+.btn-peligro {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    /* Para que el enlace se vea como botón */
+    text-align: center;
+}
+
+.btn-primario {
+    background-color: #3b82f6;
+    color: #ffffff;
+    flex-grow: 1;
+    /* El botón de guardar ocupa el espacio principal */
+}
+
+/* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
+
+/* Tablet y Celulares (max-width: 48em) */
+@media (max-width: 48em) {
+    .layout-perfil {
+        /* Pasamos de dos columnas a una sola columna apilada */
+        grid-template-columns: 1fr;
+    }
+
+    .acciones-perfil {
+        /* En celulares, los botones se ponen uno arriba del otro */
+        flex-direction: column;
+    }
+
+    .btn-primario,
+    .btn-peligro {
+        width: 100%;
+    }
+}
