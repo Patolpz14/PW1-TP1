@@ -5,10 +5,6 @@
 /* 1. CONTENEDOR DE LA RUTA */
 .contenedor-ruta {
     max-width: 800px;
-<<<<<<< HEAD
-=======
-    /* Más angosto que el dashboard para facilitar la lectura focalizada */
->>>>>>> c53b1566f6989e47449dcb8b5cade477278edb86
     margin: 3rem auto;
     padding: 0 2rem;
 }
@@ -22,10 +18,6 @@
     margin-bottom: 2.5rem;
 }
 
-<<<<<<< HEAD
-=======
-/* Reducimos la opacidad visual de toda la unidad si está bloqueada */
->>>>>>> c53b1566f6989e47449dcb8b5cade477278edb86
 .unidad-curso.bloqueada {
     opacity: 0.6;
     background-color: #f9fafb;
@@ -40,21 +32,11 @@
     color: #6b7280;
 }
 
-<<<<<<< HEAD
 /* 3. CAMINO DE LECCIONES */
 .camino-lecciones {
     list-style: none;
     margin-top: 2rem;
     padding-left: 1.5rem;
-=======
-/* 3. CAMINO DE LECCIONES (La lista ordenada) */
-.camino-lecciones {
-    list-style: none;
-    /* Ocultamos los números nativos 1, 2, 3... */
-    margin-top: 2rem;
-    padding-left: 1.5rem;
-    /* Truco visual: Creamos una línea de tiempo a la izquierda */
->>>>>>> c53b1566f6989e47449dcb8b5cade477278edb86
     border-left: 3px dashed #e5e7eb;
     display: flex;
     flex-direction: column;
@@ -64,11 +46,6 @@
 /* 4. BOTONES DE CADA LECCIÓN */
 .leccion {
     position: relative;
-<<<<<<< HEAD
-=======
-    /* Necesario para alinear el botón con la línea de tiempo */
-    /* como fuinciona? */
->>>>>>> c53b1566f6989e47449dcb8b5cade477278edb86
 }
 
 .btn-leccion {
@@ -83,11 +60,6 @@
     color: #111827;
     font-weight: 700;
     transition: all 0.2s ease;
-<<<<<<< HEAD
-=======
-    /* Suaviza los cambios al pasar el mouse */
-    /* Empuja la tarjeta a la izquierda para tapar la línea de tiempo punteada */
->>>>>>> c53b1566f6989e47449dcb8b5cade477278edb86
     margin-left: -2.8rem;
     width: fit-content;
 }
@@ -96,7 +68,6 @@
     font-size: 1.2rem;
 }
 
-<<<<<<< HEAD
 /* ESTADOS INTERACTIVOS */
 .leccion.completada .btn-leccion {
     background-color: #f0fdf4;
@@ -107,53 +78,20 @@
     border-color: #3b82f6;
     box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
     transform: scale(1.05);
-=======
-/* --- ESTADOS INTERACTIVOS --- */
-
-/* A. Lección Completada */
-.leccion.completada .btn-leccion {
-    background-color: #f0fdf4;
-    /* Fondo verde muy suave */
-    border-color: #86efac;
-}
-
-/* B. Lección Activa (La principal) */
-.leccion.activa .btn-leccion {
-    border-color: #3b82f6;
-    /* Borde azul llamativo */
-    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
-    /* Sombra decorativa (px) */
-    transform: scale(1.05);
-    /* La hacemos un 5% más grande para que resalte */
->>>>>>> c53b1566f6989e47449dcb8b5cade477278edb86
 }
 
 .leccion.activa .btn-leccion:hover {
     background-color: #eff6ff;
 }
 
-<<<<<<< HEAD
-=======
-/* C. Lección Bloqueada (Accesibilidad mediante atributos) */
->>>>>>> c53b1566f6989e47449dcb8b5cade477278edb86
 .btn-leccion[aria-disabled="true"] {
     background-color: #f3f4f6;
     color: #9ca3af;
     cursor: not-allowed;
-<<<<<<< HEAD
     border-color: #e5e7eb;
 }
 
 /* RESPONSIVE WEB DESIGN */
-=======
-    /* Cambia el mouse a un círculo tachado */
-    border-color: #e5e7eb;
-}
-
-/* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
-
-/* VISTA TABLET Y MOBILE (max-width: 48em) */
->>>>>>> c53b1566f6989e47449dcb8b5cade477278edb86
 @media (max-width: 48em) {
     .contenedor-ruta {
         padding: 0 1rem;
@@ -165,14 +103,7 @@
     }
 
     .btn-leccion {
-<<<<<<< HEAD
         width: 100%;
         margin-left: -2.3rem;
-=======
-        /* En celulares, el botón ocupa todo el ancho disponible */
-        width: 100%;
-        margin-left: -2.3rem;
-        /* Ajuste milimétrico para la línea punteada */
->>>>>>> c53b1566f6989e47449dcb8b5cade477278edb86
     }
 }

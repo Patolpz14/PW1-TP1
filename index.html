@@ -15,64 +15,9 @@
 
     <!-- CABECERA INSTITUCIONAL -->
     <header class="cabecera-principal">
-        <h1>Vocablo</h1>
-        <p>Aprende Inglés, Alemán, Chino y Coreano gratis y de forma divertida</p>
-    </header>
-
-    <!-- CONTENEDOR CENTRAL -->
-    <main class="contenedor-principal">
-
-        <!-- TARJETA DE LOGIN -->
-        <section class="tarjeta-login">
-            <h2>Ingresa a tu cuenta</h2>
-
-            <!-- El action permite navegar a la Vista 2 de forma nativa -->
-            <form action="dashboard.html" method="GET" class="formulario-login">
-
-                <label for="usuario">
-                    <span>Usuario / Email:</span>
-                    <input type="text" id="usuario" name="usuario" placeholder="Ej: juan.perez" required>
-                </label>
-
-                <label for="password">
-                    <span>Contraseña:</span>
-                    <input type="password" id="password" name="password" placeholder="********" required>
-                </label>
-
-                <button type="submit" class="btn-primario">Iniciar Sesión</button>
-            </form>
-
-            <!-- ENLACES A LAS VISTAS DEDUCIDAS -->
-            <nav class="enlaces-secundarios">
-                <a href="recuperar.html">¿Olvidaste tu contraseña?</a>
-                <a href="registro.html">¿No tienes cuenta? Créala aquí</a>
-            </nav>
-
-        </section>
-
-    </main>
-
-</body>
-
-</html>
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vocablo - Iniciar Sesión</title>
-
-    <!-- CSS Modular: Orden de cascada -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/login.css">
-</head>
-
-<body>
-
-    <!-- CABECERA INSTITUCIONAL -->
-    <header class="cabecera-principal">
-        <h1>Vocablo</h1>
+        <a href="dashboard.html" class="logo">
+            <img src="img/logo-vocablo.svg" alt="Logotipo de Vocablo">
+        </a>
         <p>Aprende Inglés, Alemán y Chino gratis y de forma divertida</p>
     </header>
 
