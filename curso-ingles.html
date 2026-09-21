@@ -12,6 +12,7 @@
 
 <body>
 
+    <!-- CABECERA SUPERIOR -->
     <header class="cabecera-dashboard">
         <nav class="nav-principal">
             <a href="dashboard.html" class="enlace-volver">← Volver al Panel</a>
@@ -20,36 +21,37 @@
         </nav>
     </header>
 
-
+    <!-- CONTENEDOR PRINCIPAL: MAPA DE LECCIONES -->
     <main class="contenedor-ruta">
 
-
+        <!-- UNIDAD 1 -->
         <section class="unidad-curso">
             <header class="cabecera-unidad">
                 <h2>Unidad 1: Saludos y Presentaciones</h2>
                 <p>Aprende a presentarte y saludar a otros.</p>
             </header>
 
-         
+            <!-- Lista ORDENADA de lecciones -->
             <ol class="camino-lecciones">
-            
+                <!-- Lección Completada -->
                 <li class="leccion completada">
-                    <a href="lecciones-ingles.html" class="btn-leccion" aria-label="Lección 1 completada, repasar">
+                    <a href="lecciones.html" class="btn-leccion" aria-label="Lección 1 completada, repasar">
                         <span class="icono-estado">✔</span>
                         <span class="nombre-leccion">1. Lo básico</span>
                     </a>
                 </li>
 
+                <!-- Lección Activa (La que toca ahora) -->
                 <li class="leccion activa">
-                    <a href="lecciones-ingles.html" class="btn-leccion">
+                    <a href="lecciones.html" class="btn-leccion">
                         <span class="icono-estado">⭐</span>
                         <span class="nombre-leccion">2. Presentaciones</span>
                     </a>
                 </li>
 
-        
+                <!-- Lección Bloqueada -->
                 <li class="leccion bloqueada">
-        
+                    <!-- Fíjate que no tiene href, no se puede hacer clic -->
                     <a class="btn-leccion" aria-disabled="true">
                         <span class="icono-estado">🔒</span>
                         <span class="nombre-leccion">3. Despedidas</span>
@@ -58,7 +60,7 @@
             </ol>
         </section>
 
-
+        <!-- UNIDAD 2 (Bloqueada) -->
         <section class="unidad-curso bloqueada">
             <header class="cabecera-unidad">
                 <h2>Unidad 2: Comida y Bebida</h2>

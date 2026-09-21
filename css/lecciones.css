@@ -25,37 +25,21 @@
     font-size: 1.1rem;
 }
 
-/* Estilos de la barra de progreso nativa <progress> */
+/* Barra de progreso estática */
 .contenedor-progreso {
     flex-grow: 1;
-    display: flex;
-    align-items: center;
-}
-
-.barra-progreso {
-    width: 100%;
+    /* Ocupa todo el espacio libre entre el botón de salir y las vidas */
+    background-color: #f3f4f6;
     height: 1rem;
+    /* 16px de alto */
     border-radius: 999px;
-    overflow: hidden;
-    border: none;
-    background-color: #f3f4f6;
+    /* Bordes totalmente redondeados tipo píldora */
 }
 
-/* Estilos nativos para WebKit (Chrome, Safari, Edge) */
-.barra-progreso::-webkit-progress-bar {
-    background-color: #f3f4f6;
-    border-radius: 999px;
-}
-
-.barra-progreso::-webkit-progress-value {
+.progreso-actual {
     background-color: #22c55e;
-    border-radius: 999px;
-    transition: width 0.3s ease;
-}
-
-/* Estilos nativos para Firefox */
-.barra-progreso::-moz-progress-bar {
-    background-color: #22c55e;
+    /* Verde de respuesta correcta / avance */
+    height: 100%;
     border-radius: 999px;
 }
 
@@ -63,11 +47,13 @@
     font-weight: 900;
     font-size: 1.2rem;
     color: #ef4444;
+    /* Rojo para las vidas */
 }
 
 /* 2. CONTENEDOR DEL EJERCICIO */
 .contenedor-principal-leccion {
     max-width: 600px;
+    /* Bien angosto para que la lectura de las opciones sea rápida */
     margin: 4rem auto;
     padding: 0 2rem;
     display: flex;
@@ -81,7 +67,7 @@
     text-align: center;
 }
 
-/* 3. FORMULARIO Y OPCIONES */
+/* 3. FORMULARIO Y OPCIONES (La magia sin JS) */
 .formulario-leccion {
     width: 100%;
     display: flex;
@@ -91,6 +77,7 @@
 
 .grupo-opciones {
     border: none;
+    /* Le sacamos el borde feo que traen los fieldset por defecto */
     padding: 0;
     margin: 0;
     display: flex;
@@ -99,16 +86,20 @@
 }
 
 .oculto-visual {
+    /* Clase de accesibilidad: Oculta el legend visualmente pero lo deja para lectores de pantalla */
     position: absolute;
     width: 1px;
     height: 1px;
     overflow: hidden;
+    /* que hace? */
     clip: rect(0, 0, 0, 0);
 }
 
 /* Tarjetas de opciones */
 .tarjeta-opcion {
     display: block;
+    /* por que? */
+    /* porque es un label, para poder seleccionar haciendo click en cualquier parte del bloque */
     background-color: #ffffff;
     border: 2px solid #e5e7eb;
     border-radius: 12px;
@@ -117,6 +108,7 @@
     font-weight: 700;
     text-align: center;
     cursor: pointer;
+    /* Cambia el mouse a la manito */
 }
 
 .tarjeta-opcion:hover {
@@ -124,17 +116,23 @@
     border-color: #d1d5db;
 }
 
+/* Escondemos el circulito nativo del radio button, pero sin usar display: none */
 .tarjeta-opcion input[type="radio"] {
     opacity: 0;
     position: absolute;
 }
 
-/* Selector :has() para opción seleccionada */
+/* === EL TRUCO ESTRELLA: Selector :has() === */
+/* Si la etiqueta label "tiene" adentro un input que está "chequeado", cambiamos el estilo de toda la etiqueta */
 .tarjeta-opcion:has(input[type="radio"]:checked) {
     background-color: #eff6ff;
+    /* Fondo celeste */
     border-color: #3b82f6;
+    /* Borde azul fuerte */
     box-shadow: 0 4px 0px #2563eb;
+    /* Efecto de botón presionado (px) */
     transform: translateY(-2px);
+    /* Levanta la tarjeta un poquito */
 }
 
 /* 4. BOTÓN DE ENVÍO */
@@ -154,15 +152,17 @@
     border-radius: 12px;
     cursor: pointer;
     box-shadow: 0 4px 0px #2563eb;
+    /* Sombra sólida inferior */
     transition: all 0.1s ease;
 }
 
 .btn-primario:active {
+    /* Efecto de hundimiento al hacer clic */
     box-shadow: 0 0px 0px #2563eb;
     transform: translateY(4px);
 }
 
-/* --- RESPONSIVE WEB DESIGN --- */
+/* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
 @media (max-width: 48em) {
     .contenedor-principal-leccion {
         margin: 2rem auto;
@@ -176,9 +176,11 @@
 
     .btn-secundario span {
         display: none;
+        /* Oculta la palabra "Salir" y deja solo la ✖ para ahorrar espacio */
     }
 
     .area-ejercicio h2 {
         font-size: 1.5rem;
+        /* Achicamos el título en celulares */
     }
 }
