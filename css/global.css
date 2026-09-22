@@ -22,9 +22,8 @@
     justify-content: space-between;
     /* Empuja el logo a la izq y el menú a la der */
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    /* Centra la barra de navegación en monitores muy anchos */
+    gap: 2rem;
+    
 }
 
 .nav-principal a.activo {
@@ -38,12 +37,11 @@
 
 .menu-usuario {
     display: flex;
-    /* ordena por defecto los <li> uno al lado del otro position :row */
-    list-style: none;
-    /* Quita los puntitos a los <li> */
+    align-items: center;
     gap: 1.5rem;
-    /* Separación automática entre los enlaces */
-    /* 24px*/
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .logo {

@@ -2,6 +2,72 @@
    DASHBOARD.CSS - Estilos del Panel Principal
    ========================================= */
 
+
+.buscador-cursos {
+    position: relative;
+    flex: 1;
+    max-width: 30rem;
+}
+
+.buscador-cursos summary {
+    list-style: none;
+    cursor: pointer;
+
+    padding: 0.7rem 1rem;
+
+    border-radius: 2rem;
+
+    background-color: #f5f5f5;
+
+    color: #999;
+}
+
+.buscador-cursos summary::-webkit-details-marker {
+    display: none;
+}
+
+/* LISTA DE CURSOS */
+
+.lista-cursos {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: 100%;
+
+    margin: 0;
+    padding: 0.5rem;
+
+    list-style: none;
+    background-color: white;
+    border-radius: 1rem;
+
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+
+    z-index: 10;
+}
+.lista-cursos li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.8rem 1rem;
+
+    text-decoration: none;
+    color: #333;
+
+    border-radius: 0.6rem;
+
+    transition: background-color 0.2s ease;
+}
+
+.lista-cursos li a:hover {
+    background-color: #58cc02;
+}
+
+.lista-cursos li img {
+    width: 2rem;
+    height: auto;
+}
 /* 2. ESTRUCTURA PRINCIPAL (CSS Grid - 2 Dimensiones) */
 .contenedor-dashboard {
     display: grid;
