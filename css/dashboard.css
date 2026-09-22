@@ -15,35 +15,64 @@
 }
 
 /* 3. GRILLA DE CURSOS (Grid Interno) */
+/* 1. Transformamos el contenedor en una lista vertical */
 .grilla-cursos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 columnas de tarjetas exactamente iguales */
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.tarjeta-curso {
-    background-color: #ffffff;
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 2px solid #e5e7eb;
     display: flex;
     flex-direction: column;
-    /* Convertimos la tarjeta en una columna Flexbox */
+    gap: 1rem;
 }
 
+/* 2. CSS Grid para posicionar los 3 elementos sin usar divs extra */
+.tarjeta-curso {
+    display: grid;
+    /* Crea 2 columnas: la izquierda toma el espacio libre (1fr), la derecha se ajusta al botón (auto) */
+    grid-template-columns: 1fr auto;
+    /* Crea 2 filas para apilar el h3 y el p */
+    grid-template-rows: auto auto;
+    align-items: center;
+    /* Centra verticalmente */
+
+    background-color: #ffffff;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. Ubicamos cada elemento en la grilla virtual */
 .tarjeta-curso h3 {
-    font-size: 1.3rem;
+    grid-column: 1 / 2;
+    /* Primera columna */
+    grid-row: 1 / 2;
+    /* Primera fila (arriba) */
+    font-size: 1.25rem;
+    margin: 0 0 0.3rem 0;
+    /* Espaciado con el párrafo */
+}
+
+.icono-bandera {
+    width: 1.5rem;
+    height: auto;
+    margin-right: 0.5rem;
+    /* Separación con el texto */
+    vertical-align: middle;
+    /* Para que quede alineado con el texto */
 }
 
 .tarjeta-curso p {
+    grid-column: 1 / 2;
+    /* Primera columna */
+    grid-row: 2 / 3;
+    /* Segunda fila (abajo) */
+    font-size: 0.9rem;
     color: #6b7280;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-    /* esta mal en el apunte. Valor por defecto: 0 */
-    /* Truco de oro: empuja el botón siempre hacia el fondo */
-    /* no hace falta volver a poner el display: flex, hereda el de .tarjeta-curso */
+    margin: 0;
+}
+
+.tarjeta-curso .btn-primario .tarjeta-curso .btn-secundario {
+    grid-column: 2 / 3;
+    /* Segunda columna (a la derecha) */
+    grid-row: 1 / 3;
+    /* Ocupa el alto de las DOS filas de texto */
 }
 
 /* 4. PANEL LATERAL DE ESTADÍSTICAS */
@@ -101,4 +130,29 @@
         /* Las tarjetas colapsan a 1 sola por fila, ocupando el 100% del ancho */
         grid-template-columns: 1fr;
     }
+
+    .tarjeta-curso {
+        grid-template-columns: 1fr;
+        /* Una sola columna */
+        gap: 1rem;
+    }
+
+    .tarjeta-curso h3 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .tarjeta-curso p {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .tarjeta-curso .btn-primario .tarjeta-curso .btn-secundario {
+        grid-column: 1 / 2;
+        /* Pasa a la primera columna */
+        grid-row: 3 / 4;
+        /* Pasa a la tercera fila (abajo de todo) */
+        text-align: center;
+    }
+}
 }
