@@ -95,12 +95,12 @@ a:hover {
     /* Comportamiento de bloque para ocupar todo el ancho disponible */
     width: 100%;
     background-color: #58cc02;
-    /* Verde vibrante estilo plataforma de idiomas */
     color: #ffffff;
     padding: 0.8em 1.2em;
     font-size: 1.1rem;
     font-weight: bold;
-    border: none;
+    border: 2px solid transparent;
+    /* para equiparar con el secundario */
     border-radius: 12px;
     /* Bordes bien redondeados y amigables */
     cursor: pointer;
@@ -109,6 +109,32 @@ a:hover {
 
 .btn-primario:hover {
     background-color: #46a302;
+}
+
+.btn-secundario {
+    display: block;
+    /* Copiado de tu botón original */
+    width: 100%;
+    /* Copiado de tu botón original */
+    padding: 0.8em 1.2em;
+    /* Mismo padding exacto */
+    font-size: 1.1rem;
+    /* Mismo tamaño de fuente */
+    font-weight: bold;
+    border-radius: 12px;
+    /* Mismos bordes bien redondeados */
+    cursor: pointer;
+    text-align: center;
+
+    /* El truco visual del Ghost Button (Fondo transparente, texto y borde azul) */
+    background-color: transparent;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+}
+
+.btn-secundario:hover {
+    background-color: #2563eb;
+    color: #ffffff;
 }
 
 /* 5. CAMPOS DE FORMULARIO GLOBALES */
