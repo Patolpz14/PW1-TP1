@@ -12,32 +12,31 @@
 
 <body>
 
-    
+
     <header class="cabecera-leccion">
         <nav class="nav-leccion">
-            
+
             <a href="dashboard.html" class="btn-secundario" aria-label="Cerrar lección">✖ Salir</a>
 
-           
+
             <div class="contenedor-progreso">
-                <progress value="50" max="100" class="barra-progreso" aria-label="Progreso de la lección 50%">50%</progress>
+                <div class="progreso-actual" style="width: 50%;"></div> <!-- como se hace la barra de progreso?  -->
             </div>
 
-            
             <span class="vidas-restantes" aria-label="3 vidas restantes">❤️ 3</span>
         </nav>
     </header>
 
-    
+
     <main class="contenedor-principal-leccion">
 
         <section class="area-ejercicio">
             <h2>¿Cómo se dice "Manzana"?</h2>
 
-            
-            <form action="dashboard.html" method="GET" class="formulario-leccion">
 
-                
+            <form action="curso-chino.html" method="GET" class="formulario-leccion">
+
+
                 <fieldset class="grupo-opciones">
                     <legend class="oculto-visual">Selecciona la traducción correcta</legend>
 
@@ -57,7 +56,7 @@
                     </label>
                 </fieldset>
 
-                
+
                 <footer class="controles-leccion">
                     <button type="submit" class="btn-primario">Comprobar respuesta</button>
                 </footer>
