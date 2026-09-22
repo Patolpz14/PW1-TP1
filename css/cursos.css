@@ -70,8 +70,8 @@
 
 /* ESTADOS INTERACTIVOS */
 .leccion.completada .btn-leccion {
-    background-color: #f0fdf4;
-    border-color: #86efac;
+    background-color: #fde5c8;
+    border-color: #f1a36f;
 }
 
 .leccion.activa .btn-leccion {

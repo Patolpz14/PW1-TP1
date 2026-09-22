@@ -94,7 +94,7 @@ a:hover {
     display: block;
     /* Comportamiento de bloque para ocupar todo el ancho disponible */
     width: 100%;
-    background-color: #58cc02;
+    background-color: #f1a36f;
     color: #ffffff;
     padding: 0.8em 1.2em;
     font-size: 1.1rem;
@@ -108,7 +108,7 @@ a:hover {
 }
 
 .btn-primario:hover {
-    background-color: #46a302;
+    background-color: #f1a36f;
 }
 
 .btn-secundario {
