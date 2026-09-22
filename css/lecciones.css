@@ -9,6 +9,15 @@
     border-bottom: 2px solid #e5e7eb;
 }
 
+.cabecera-leccion .btn-secundario {
+    width: auto;
+    /* ¡Acá está la clave! Anulamos el 100% del archivo global */
+    padding: 0.4rem 1rem;
+    /* Lo hacemos más compacto para que parezca un botón de control */
+    border-radius: 8px;
+    /* Un poco menos redondeado que los botones principales */
+}
+
 .nav-leccion {
     display: flex;
     justify-content: space-between;

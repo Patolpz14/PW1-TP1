@@ -44,13 +44,13 @@
     /* Primera columna */
     grid-row: 1 / 2;
     /* Primera fila (arriba) */
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin: 0 0 0.3rem 0;
     /* Espaciado con el párrafo */
 }
 
 .icono-bandera {
-    width: 1.5rem;
+    width: 1.75rem;
     height: auto;
     margin-right: 0.5rem;
     /* Separación con el texto */
