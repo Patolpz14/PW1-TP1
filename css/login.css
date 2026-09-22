@@ -98,14 +98,16 @@
 }
 
 .texto-instrucciones {
-    style="text-align: center; margin-bottom: 1.5rem; color: #6b7280;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #6b7280;
 
 }
 
 /* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
 
 /* 1. VISTA TABLET (max-width: 768px -> 48em) */
-@media (max-width: 48em) {
+@media (max-width: 48rem) {
     .tarjeta-login {
         max-width: 80%;
         /* La tarjeta ocupa más espacio relativo en la pantalla */
