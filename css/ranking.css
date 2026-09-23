@@ -12,7 +12,6 @@
 .controles-ranking {
     display: flex;
     justify-content: flex-end;
-    /* Empuja el selector a la derecha */
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.5rem;
@@ -33,12 +32,10 @@
 
 .banner-liga {
     background-color: #f59e0b;
-    /* Amarillo/Naranja como en el mockup */
     color: #ffffff;
     text-align: center;
     padding: 2rem;
     border-radius: 12px 12px 0 0;
-    /* Bordes redondeados solo arriba */
 }
 
 .banner-liga h1 {
@@ -52,23 +49,18 @@
 
 /* 2. ESTRUCTURA DE LA TABLA */
 .contenedor-tabla {
-    /* Clave para el responsive en tablas */
     overflow-x: auto;
     background-color: #ffffff;
     border: 2px solid #e5e7eb;
     border-top: none;
-    /* Evita doble borde con el banner */
     border-radius: 0 0 12px 12px;
-    /* Bordes redondeados solo abajo */
 }
 
 .tabla-ranking {
     width: 100%;
     border-collapse: collapse;
-    /* Elimina los espacios entre las celdas nativas */
     text-align: center;
     min-width: 600px;
-    /* Evita que la tabla se aplaste demasiado en celulares */
 }
 
 /* Cabeceras de columna */
@@ -100,7 +92,6 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    /* Avatar circular */
     object-fit: cover;
 }
 
@@ -108,14 +99,12 @@
 /* 4. FILA RESALTADA (El Usuario Actual) */
 .fila-usuario-actual {
     background-color: #eff6ff;
-    /* Fondo celeste claro */
 }
 
 .fila-usuario-actual td {
     font-weight: 900;
 }
 
-/* Borde azul grueso en la primera celda para destacarlo más */
 .fila-usuario-actual td:first-child {
     border-left: 4px solid #3b82f6;
 }
@@ -124,7 +113,7 @@
     font-weight: 700;
 }
 
-/* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
+/* --- RESPONSIVE WEB DESIGN --- */
 @media (max-width: 48em) {
     .contenedor-ranking {
         padding: 0 1rem;
@@ -132,6 +121,5 @@
 
     .controles-ranking {
         justify-content: space-between;
-        /* En celulares, separa el texto del select */
     }
 }

@@ -9,30 +9,25 @@
     box-sizing: border-box;
 }
 
-/* 1. NAVEGACIÓN SUPERIOR (Flexbox - 1 Dimensión) */
+/* 1. NAVEGACIÓN SUPERIOR  */
 .cabecera-dashboard {
     background-color: #ffffff;
     padding: 1rem 2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    /* sombra */
 }
 
 .nav-principal {
     display: flex;
     justify-content: space-between;
-    /* Empuja el logo a la izq y el menú a la der */
     align-items: center;
     gap: 2rem;
-    
+
 }
 
 .nav-principal a.activo {
     color: #3b82f6;
-    /* Un color azul llamativo */
     font-weight: 900;
-    /* Letra más gruesa que los demás enlaces */
     border-bottom: 2px solid #3b82f6;
-    /* Un subrayado elegante */
 }
 
 .menu-usuario {
@@ -57,13 +52,10 @@
 
 /* 2. ESTILOS BASE DEL DOCUMENTO */
 body {
-    /* Usamos fuentes seguras recomendadas hasta importar una web font */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f4f8;
-    /* Un tono gris-celeste muy suave y moderno */
     color: #333333;
     font-size: 100%;
-    /* Establece la base (aprox 16px) para usar 'em' y 'rem' */
     line-height: 1.5;
 }
 
@@ -73,17 +65,14 @@ h2,
 h3 {
     color: #1a202c;
     margin-bottom: 0.5em;
-    /* Unidades relativas para márgenes */
 }
 
 a {
     color: #3182ce;
     text-decoration: none;
-    /* Quitamos el subrayado azul por defecto */
     font-weight: bold;
 }
 
-/* Pseudo-clase para el estado interactivo del enlace */
 a:hover {
     text-decoration: underline;
     color: #2b6cb0;
@@ -92,7 +81,6 @@ a:hover {
 /* 4. BOTONES GLOBALES */
 .btn-primario {
     display: block;
-    /* Comportamiento de bloque para ocupar todo el ancho disponible */
     width: 100%;
     background-color: #f1a36f;
     color: #ffffff;
@@ -100,9 +88,7 @@ a:hover {
     font-size: 1.1rem;
     font-weight: bold;
     border: 2px solid transparent;
-    /* para equiparar con el secundario */
     border-radius: 12px;
-    /* Bordes bien redondeados y amigables */
     cursor: pointer;
     text-align: center;
 }
@@ -113,20 +99,13 @@ a:hover {
 
 .btn-secundario {
     display: block;
-    /* Copiado de tu botón original */
     width: 100%;
-    /* Copiado de tu botón original */
     padding: 0.8em 1.2em;
-    /* Mismo padding exacto */
     font-size: 1.1rem;
-    /* Mismo tamaño de fuente */
     font-weight: bold;
     border-radius: 12px;
-    /* Mismos bordes bien redondeados */
     cursor: pointer;
     text-align: center;
-
-    /* El truco visual del Ghost Button (Fondo transparente, texto y borde azul) */
     background-color: transparent;
     color: #2563eb;
     border: 2px solid #2563eb;
@@ -149,10 +128,8 @@ input[type="email"] {
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
-    /* Quita el borde por defecto al hacer clic */
 }
 
-/* Estado focus para accesibilidad visual cuando el usuario escribe */
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
@@ -166,7 +143,6 @@ input[type="email"]:focus {
 
     .nav-principal {
         flex-direction: column;
-        /* Apilamos el Logo arriba del Menú */
         gap: 1rem;
     }
 }

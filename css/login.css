@@ -6,22 +6,17 @@
 .cabecera-principal {
     display: flex;
     flex-direction: column;
-    /* Apila el título/logo arriba y el párrafo abajo */
     align-items: center;
-    /* Fuerza el centrado absoluto de todo el contenido */
     text-align: center;
     padding: 1.5rem;
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    /* Sombra muy sutil abajo */
 }
 
 .cabecera-principal img {
     height: 3.5rem;
-    /* Lo hacemos más grande que en la barra de navegación */
     width: auto;
     margin-bottom: 1.5rem;
-    /* Empuja el texto de abajo para darle respiro */
 }
 
 .cabecera-principal p {
@@ -33,11 +28,7 @@
 .contenedor-principal {
     display: flex;
     justify-content: center;
-    /* Centrado horizontal */
     align-items: center;
-    /* Centrado vertical */
-
-    /* 100vh es toda la altura de la pantalla, le restamos la altura aprox de la cabecera */
     min-height: calc(100vh - 115px);
     padding: 2rem;
 }
@@ -47,11 +38,9 @@
     background-color: #ffffff;
     width: 100%;
     max-width: 450px;
-    /* Ancho máximo en monitores grandes */
     padding: 3rem 2.5rem;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    /* Efecto de tarjeta flotante */
 }
 
 .tarjeta-login h2 {
@@ -63,13 +52,11 @@
 .formulario-login {
     display: flex;
     flex-direction: column;
-    /* Apila los elementos de arriba hacia abajo */
 }
 
 .formulario-login label {
     display: flex;
     flex-direction: column;
-    /* Pone el texto del span arriba del input */
     font-weight: bold;
     color: #555555;
     font-size: 0.95rem;
@@ -77,7 +64,6 @@
 
 .formulario-login span {
     margin-bottom: 0.3rem;
-    /* Separación sutil entre el texto y la caja de tipeo */
 }
 
 /* 5. ENLACES SECUNDARIOS */
@@ -86,11 +72,9 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    /* Espaciado automático entre los enlaces */
     margin-top: 2rem;
     padding-top: 1.5rem;
     border-top: 1px solid #eeeeee;
-    /* Línea divisoria gris claro */
 }
 
 .enlaces-secundarios a {
@@ -104,15 +88,13 @@
 
 }
 
-/* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
+/* --- RESPONSIVE WEB DESIGN --- */
 
 /* 1. VISTA TABLET (max-width: 768px -> 48em) */
 @media (max-width: 48rem) {
     .tarjeta-login {
         max-width: 80%;
-        /* La tarjeta ocupa más espacio relativo en la pantalla */
         padding: 2.5rem 2rem;
-        /* Reducimos levemente el espacio interno */
     }
 }
 
@@ -121,7 +103,6 @@
     .contenedor-principal {
         padding: 1rem;
         align-items: flex-start;
-        /* Empujamos el formulario hacia la parte superior */
     }
 
     .tarjeta-login {
@@ -129,9 +110,7 @@
         padding: 1.5rem 1rem;
         border-radius: 0;
         box-shadow: none;
-        /* Quitamos el efecto flotante */
         background-color: transparent;
-        /* Fundimos el formulario con el fondo general */
     }
 
     .cabecera-principal {
@@ -140,6 +119,5 @@
 
     .cabecera-principal h1 {
         font-size: 2rem;
-        /* Reducimos el tamaño del título principal para evitar desbordes */
     }
 }

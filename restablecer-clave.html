@@ -24,14 +24,13 @@
             <p class="texto-instrucciones">Ingresa tu nueva clave de acceso. Asegúrate de que sea segura y fácil de
                 recordar.</p>
 
-            <!-- Redirige al login simulando el éxito de la operación -->
             <form action="index.html" method="GET" class="formulario-login">
 
                 <label for="pass-nueva">
                     <span>Nueva contraseña:</span>
-                    <!-- minlength="8" agrega validación nativa de HTML5 -->
+
                     <input type="password" id="pass-nueva" name="pass-nueva" placeholder="Mínimo 8 caracteres"
-                        minlength="8" required>
+                        minlength="8" required> <!-- valid -->
                 </label>
 
                 <label for="pass-confirma">
