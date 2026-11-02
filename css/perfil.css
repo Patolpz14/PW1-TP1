@@ -14,14 +14,12 @@
     color: #111827;
 }
 
-/* 1. LAYOUT PRINCIPAL (CSS Grid) */
+/* 1. LAYOUT PRINCIPAL */
 .layout-perfil {
     display: grid;
-    /* La columna izquierda (perfil) ocupa 1 fracción, la derecha (formulario) ocupa 2 fracciones */
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
     align-items: start;
-    /* Evita que la tarjeta izquierda se estire si el formulario es muy largo */
 }
 
 /* 2. TARJETAS COMPARTIDAS */
@@ -45,9 +43,7 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    /* Esto es lo que lo hace circular */
     object-fit: cover;
-    /* Evita que la foto se deforme */
     margin-bottom: 1rem;
     border: 4px solid #f3f4f6;
 }
@@ -124,14 +120,12 @@
     border-radius: 8px;
     font-size: 1rem;
     font-family: inherit;
-    /* Hereda la tipografía global */
 }
 
 .grupo-input input:focus,
 .grupo-input select:focus {
     outline: none;
     border-color: #3b82f6;
-    /* Borde azul al escribir */
 }
 
 /* 5. BOTONERA */
@@ -149,7 +143,6 @@
     cursor: pointer;
     border: none;
     text-decoration: none;
-    /* Para que el enlace se vea como botón */
     text-align: center;
 }
 
@@ -157,20 +150,17 @@
     background-color: #3b82f6;
     color: #ffffff;
     flex-grow: 1;
-    /* El botón de guardar ocupa el espacio principal */
 }
 
-/* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
+/* --- RESPONSIVE WEB DESIGN --- */
 
 /* Tablet y Celulares (max-width: 48em) */
 @media (max-width: 48em) {
     .layout-perfil {
-        /* Pasamos de dos columnas a una sola columna apilada */
         grid-template-columns: 1fr;
     }
 
     .acciones-perfil {
-        /* En celulares, los botones se ponen uno arriba del otro */
         flex-direction: column;
     }
 
