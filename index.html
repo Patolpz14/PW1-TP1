@@ -28,22 +28,24 @@
             <h2>Ingresa a tu cuenta</h2>
 
             <!-- El action permite navegar a la Vista 2 de forma nativa -->
-            <form action="dashboard.html" method="POST" class="formulario-login">
-
+            <form class="formulario-login">
                 <label for="usuario">
-                    <span>Usuario / Email:</span>
-                    <input type="text" id="usuario" name="usuario" placeholder="Ej: juan.perez" required>
+                    <span>Usuario o correo:</span>
+                    <input type="text" id="usuario" name="usuario" placeholder="Ej: Juan Pérez" required>
+                    <!-- Contenedor para el error de usuario -->
+                    <span class="mensaje-error" id="error-usuario"></span>
                 </label>
 
                 <label for="password">
                     <span>Contraseña:</span>
-                    <input type="password" id="password" name="password" placeholder="********" required>
+                    <span class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="********" required>
+                    </span>
+                    <!-- Contenedor para el error de contraseña -->
+                    <span class="mensaje-error" id="error-password"></span>
                 </label>
 
-                <button type="submit" class="btn-primario">
-                    Iniciar Sesión
-                </button>
-
+                <button type="submit" class="btn-primario">Iniciar Sesión</button>
             </form>
 
             <!-- ENLACES SECUNDARIOS -->
@@ -55,7 +57,7 @@
         </section>
 
     </main>
-
+    <script type="module" src="js/login.js"></script>
 </body>
 
 </html>

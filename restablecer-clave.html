@@ -24,12 +24,18 @@
             <p class="texto-instrucciones">Ingresa tu nueva clave de acceso. Asegúrate de que sea segura y fácil de
                 recordar.</p>
 
-            <!-- Redirige al login simulando el éxito de la operación -->
-            <form action="index.html" method="POST" class="formulario-login">
+            <!-- Quitamos el action y method nativos para controlarlo con JavaScript -->
+            <form class="formulario-login">
+
+                <!-- Agregamos un campo para identificar al usuario por su email -->
+                <label for="email-recuperar">
+                    <span>Correo electrónico registrado:</span>
+                    <input type="email" id="email-recuperar" name="email-recuperar" placeholder="usuario@ejemplo.com"
+                        required>
+                </label>
 
                 <label for="pass-nueva">
                     <span>Nueva contraseña:</span>
-                    <!-- minlength="8" agrega validación nativa de HTML5 -->
                     <input type="password" id="pass-nueva" name="pass-nueva" placeholder="Mínimo 8 caracteres"
                         minlength="8" required>
                 </label>
@@ -48,6 +54,9 @@
             </nav>
         </section>
     </main>
+
+    <!-- Conectamos nuestro script modular -->
+    <script type="module" src="js/recuperar.js"></script>
 
 </body>
 

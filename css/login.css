@@ -69,15 +69,32 @@
 .formulario-login label {
     display: flex;
     flex-direction: column;
-    /* Pone el texto del span arriba del input */
     font-weight: bold;
     color: #555555;
     font-size: 0.95rem;
+    margin-bottom: 0.2rem;
 }
 
-.formulario-login span {
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-login label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #555555;
+    font-size: 0.95rem;
     margin-bottom: 0.3rem;
-    /* Separación sutil entre el texto y la caja de tipeo */
+}
+
+.formulario-login label>span:first-child {
+    margin-bottom: 2px;
+}
+
+.formulario-login input {
+    margin-bottom: 2px;
 }
 
 /* 5. ENLACES SECUNDARIOS */
@@ -86,11 +103,9 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    /* Espaciado automático entre los enlaces */
     margin-top: 2rem;
     padding-top: 1.5rem;
     border-top: 1px solid #eeeeee;
-    /* Línea divisoria gris claro */
 }
 
 .enlaces-secundarios a {
@@ -101,7 +116,23 @@
     text-align: center;
     margin-bottom: 1.5rem;
     color: #6b7280;
+}
 
+/* 6. ESTILO PARA INPUTS CON ERRORES */
+.formulario-login input.error {
+    border: 2px solid #e74c3c !important;
+    background-color: #fdf2f2 !important;
+}
+
+/* Estilo para el texto de los mensajes de error debajo de cada input */
+.mensaje-error {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    font-weight: normal;
+    margin-top: 4px;
+    margin-bottom: 0.5rem;
+    display: block;
+    min-height: 18px;
 }
 
 /* --- RESPONSIVE WEB DESIGN (Desktop First) --- */
@@ -110,9 +141,7 @@
 @media (max-width: 48rem) {
     .tarjeta-login {
         max-width: 80%;
-        /* La tarjeta ocupa más espacio relativo en la pantalla */
         padding: 2.5rem 2rem;
-        /* Reducimos levemente el espacio interno */
     }
 }
 
@@ -121,7 +150,6 @@
     .contenedor-principal {
         padding: 1rem;
         align-items: flex-start;
-        /* Empujamos el formulario hacia la parte superior */
     }
 
     .tarjeta-login {
@@ -129,9 +157,7 @@
         padding: 1.5rem 1rem;
         border-radius: 0;
         box-shadow: none;
-        /* Quitamos el efecto flotante */
         background-color: transparent;
-        /* Fundimos el formulario con el fondo general */
     }
 
     .cabecera-principal {
@@ -140,6 +166,5 @@
 
     .cabecera-principal h1 {
         font-size: 2rem;
-        /* Reducimos el tamaño del título principal para evitar desbordes */
     }
 }

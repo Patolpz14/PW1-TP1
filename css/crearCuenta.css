@@ -1,0 +1,18 @@
+.requisitos-password {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.requisito {
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.requisito.valido {
+    color: #28a745;
+    /* Verde éxito */
+    font-weight: 500;
+}
