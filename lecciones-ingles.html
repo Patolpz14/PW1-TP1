@@ -33,37 +33,41 @@
             <h2>¿Cómo se dice "Hola"?</h2>
 
             <!-- Formulario de validación estática -->
-            <form action="curso-ingles.html" method="GET" class="formulario-leccion">
+            <!-- Agregamos un ID para atraparlo con JavaScript -->
+            <form id="form-leccion" data-id-leccion="ingles-unidad1-ej1" class="formulario-leccion">
 
-                <!-- Agrupación de opciones -->
                 <fieldset class="grupo-opciones">
                     <legend class="oculto-visual">Selecciona la traducción correcta</legend>
 
                     <label class="tarjeta-opcion">
-                        <input type="radio" name="traduccion" value="orange" required>
+                        <!-- Cambiamos el value por la respuesta real -->
+                        <input type="radio" name="traduccion" value="hello" required>
                         <span class="texto-opcion">Hello</span>
                     </label>
 
                     <label class="tarjeta-opcion">
-                        <input type="radio" name="traduccion" value="apple" required>
+                        <input type="radio" name="traduccion" value="goodbye" required>
                         <span class="texto-opcion">Goodbye</span>
                     </label>
 
                     <label class="tarjeta-opcion">
-                        <input type="radio" name="traduccion" value="banana" required>
+                        <input type="radio" name="traduccion" value="please" required>
                         <span class="texto-opcion">Please</span>
                     </label>
                 </fieldset>
 
-                <!-- Área inferior con el botón de envío -->
                 <footer class="controles-leccion">
                     <button type="submit" class="btn-primario">Comprobar respuesta</button>
+                    <!-- Agregamos un párrafo vacío para inyectar mensajes de éxito/error desde JS -->
+                    <p id="mensaje-feedback" class="mensaje-oculto"></p>
                 </footer>
             </form>
 
         </section>
 
     </main>
+
+    <script type="module" src="js/views/leccion.js"></script>
 
 </body>
 
