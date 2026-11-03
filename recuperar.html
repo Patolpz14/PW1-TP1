@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vocablo - Recuperar Contraseña</title>
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/recuperar.css">
 </head>
 
 <body>
@@ -17,19 +17,32 @@
     </header>
 
     <main class="contenedor-principal">
-        <section class="tarjeta-login">
-            <h2>Recuperar Contraseña</h2>
+        <section class="tarjeta-recuperar">
+            <h2>Restablecer Contraseña</h2>
             <p class="texto-instrucciones">
-                Ingresa tu correo electrónico y te enviaremos las instrucciones para restablecer tu clave.
+                Ingresa tu correo registrado y tu nueva contraseña (de 8 a 15 caracteres, con una mayúscula y un
+                carácter especial).
             </p>
 
-            <form action="restablecer-clave.html" method="GET" class="formulario-login">
-                <label for="email">
+            <!-- Formulario limpio sin action ni method, controlado por JS -->
+            <form id="form-recuperar" class="formulario-recuperar">
+
+                <label for="email-recuperar">
                     <span>Correo electrónico:</span>
-                    <input type="email" id="email" name="email" placeholder="usuario@ejemplo.com" required>
+                    <input type="email" id="email-recuperar" name="email" placeholder="usuario@ejemplo.com" required>
                 </label>
 
-                <button type="submit" class="btn-primario">Enviar Instrucciones</button>
+                <label for="pass-nueva">
+                    <span>Nueva contraseña:</span>
+                    <input type="password" id="pass-nueva" name="nuevaPassword" placeholder="********" required>
+                </label>
+
+                <label for="pass-confirma">
+                    <span>Confirmar nueva contraseña:</span>
+                    <input type="password" id="pass-confirma" name="confirmaPassword" placeholder="********" required>
+                </label>
+
+                <button type="submit" class="btn-primario">Actualizar Contraseña</button>
             </form>
 
             <nav class="enlaces-secundarios">
@@ -38,6 +51,8 @@
         </section>
     </main>
 
+    <!-- Script exclusivo para recuperación -->
+    <script type="module" src="js/recuperar.js"></script>
 </body>
 
 </html>

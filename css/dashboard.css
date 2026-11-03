@@ -2,7 +2,6 @@
    DASHBOARD.CSS - Estilos del Panel Principal
    ========================================= */
 
-
 .buscador-cursos {
     position: relative;
     flex: 1;
@@ -12,37 +11,28 @@
 .buscador-cursos summary {
     list-style: none;
     cursor: pointer;
-
     padding: 0.7rem 1rem;
-
     border-radius: 2rem;
-
     background-color: #f5f5f5;
-
-    color: #999;
+    color: #666;
 }
 
 .buscador-cursos summary::-webkit-details-marker {
     display: none;
 }
 
-/* LISTA DE CURSOS */
-
+/* LISTA DE CURSOS (DESPLEGABLE) */
 .lista-cursos {
     position: absolute;
     top: calc(100% + 0.5rem);
     left: 0;
     width: 100%;
-
     margin: 0;
     padding: 0.5rem;
-
     list-style: none;
     background-color: white;
     border-radius: 1rem;
-
     box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
-
     z-index: 10;
 }
 
@@ -50,19 +40,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 0.8rem 1rem;
-
     text-decoration: none;
     color: #333;
-
     border-radius: 0.6rem;
-
     transition: background-color 0.2s ease;
 }
 
 .lista-cursos li a:hover {
-    background-color: #58cc02;
+    background-color: #fdf2e9;
+    color: #f1a36f;
 }
 
 .lista-cursos li img {
@@ -70,7 +57,7 @@
     height: auto;
 }
 
-/* 2. ESTRUCTURA PRINCIPAL (CSS Grid - 2 Dimensiones) */
+/* ESTRUCTURA PRINCIPAL (CSS Grid - 2 Dimensiones) */
 .contenedor-dashboard {
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -80,99 +67,196 @@
     padding: 0 2rem;
 }
 
-/* 3. GRILLA DE CURSOS  */
+/* BANNER DE BIENVENIDA (Usando tu #f1a36f) */
+.banner-bienvenida {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #f1a36f, #e08b52);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(241, 163, 111, 0.25);
+}
+
+.banner-bienvenida h1 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+.banner-bienvenida p {
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* GRILLA DE CURSOS */
+.cursos-activos {
+    grid-column: 1 / 2;
+}
+
+.cursos-activos h2,
+.panel-estadisticas h2 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+}
+
 .grilla-cursos {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
+/* TARJETA DE CURSO (Molde Estático Fijo) */
 .tarjeta-curso {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
     align-items: center;
-
-    background-color: #ffffff;
-    padding: 1.5rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.tarjeta-curso h3 {
+.tarjeta-curso:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.curso-header {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    font-size: 1.5rem;
-    margin: 0 0 0.3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.icono-bandera {
-    width: 1.75rem;
+.bandera-curso {
+    width: 2.5rem;
     height: auto;
-    margin-right: 0.5rem;
-    vertical-align: middle;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.tarjeta-curso p {
+.curso-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #1a202c;
+}
+
+.curso-body {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    font-size: 0.9rem;
-    color: #6b7280;
-    margin: 0;
 }
 
-.tarjeta-curso .btn-primario .tarjeta-curso .btn-secundario {
+.curso-body p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+/* Barra de progreso (Usando tu #3b82f6) */
+.barra-progreso-fondo {
+    background-color: #e5e7eb;
+    border-radius: 10px;
+    height: 12px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 0.3rem;
+}
+
+.barra-progreso-nivel {
+    background-color: #3b82f6;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+.curso-body span {
+    font-size: 0.8rem;
+    color: #6b7280;
+    display: block;
+    text-align: right;
+}
+
+/* Botón de continuar (Usando tu #f1a36f) */
+.btn-continuar {
     grid-column: 2 / 3;
     grid-row: 1 / 3;
+    background-color: #f1a36f;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
 }
 
-/* 4. PANEL LATERAL DE ESTADÍSTICAS */
+.btn-continuar:hover {
+    background-color: #df915b;
+}
+
+/* PANEL LATERAL DE ESTADÍSTICAS */
 .panel-estadisticas {
     background-color: #ffffff;
     padding: 1.5rem;
     border-radius: 12px;
-    border: 2px solid #e5e7eb;
+    border: 1px solid #e5e7eb;
     height: fit-content;
 }
 
 .lista-estadisticas {
     list-style: none;
-    margin-top: 1.5rem;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.lista-estadisticas li {
-    padding: 0.8rem 0;
-    border-bottom: 1px solid #f3f4f6;
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #f3f4f6;
+}
+
+.stat-icono {
+    font-size: 1.5rem;
+}
+
+.stat-info strong {
+    display: block;
+    font-size: 0.8rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+}
+
+.stat-info p {
+    margin: 0;
     font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937;
 }
 
-.lista-estadisticas li:last-child {
-    border-bottom: none;
-}
-
-/* --- RESPONSIVE WEB DESIGN -- */
-
-/* VISTA TABLET (max-width: 768px -> 48em) */
+/* --- RESPONSIVE WEB DESIGN --- */
 @media (max-width: 48em) {
     .contenedor-dashboard {
         grid-template-columns: 1fr;
     }
-
-    .grilla-cursos {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
-/* VISTA MOBILE (max-width: 600px -> 37.5em) */
 @media (max-width: 37.5em) {
-
     .contenedor-dashboard {
         padding: 0 1rem;
         margin: 1rem auto;
-    }
-
-    .grilla-cursos {
-        grid-template-columns: 1fr;
     }
 
     .tarjeta-curso {
@@ -180,19 +264,20 @@
         gap: 1rem;
     }
 
-    .tarjeta-curso h3 {
+    .curso-header {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
     }
 
-    .tarjeta-curso p {
+    .curso-body {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
     }
 
-    .tarjeta-curso .btn-primario .tarjeta-curso .btn-secundario {
+    .btn-continuar {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
+        width: 100%;
         text-align: center;
     }
 }

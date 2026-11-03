@@ -1,0 +1,176 @@
+/* =========================================
+   LOGIN.CSS - Estilos de la Vista de Inicio
+   ========================================= */
+
+/* 1. CABECERA INSTITUCIONAL */
+.cabecera-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.cabecera-principal img {
+    height: 3.5rem;
+    width: auto;
+    margin-bottom: 1.5rem;
+}
+
+.cabecera-principal p {
+    color: #777777;
+    font-size: 1rem;
+}
+
+/* 2. CONTENEDOR CENTRAL (El truco de Flexbox) */
+.contenedor-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 115px);
+    padding: 2rem;
+}
+
+/* 3. TARJETA DE INICIO DE SESIÓN */
+.tarjeta-login {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-login h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* 4. FORMULARIO INTERNO */
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-login label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #555555;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+}
+
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-login label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #555555;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.formulario-login label>span:first-child {
+    margin-bottom: 2px;
+}
+
+.formulario-login input {
+    margin-bottom: 2px;
+
+}
+
+.formulario-login .btn-primario {
+    margin-top: 1rem;
+    background-color: #f1a36f;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.formulario-login .btn-primario:hover {
+    background-color: #df915b;
+}
+
+/* 5. ENLACES SECUNDARIOS */
+.enlaces-secundarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eeeeee;
+}
+
+.enlaces-secundarios a {
+    font-size: 0.9rem;
+}
+
+.texto-instrucciones {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #6b7280;
+}
+
+/* 6. ESTILO PARA INPUTS CON ERRORES */
+.formulario-login input.error {
+    border: 2px solid #e74c3c !important;
+    background-color: #fdf2f2 !important;
+}
+
+/* Estilo para el texto de los mensajes de error debajo de cada input */
+.mensaje-error {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    font-weight: normal;
+    margin-top: 4px;
+    margin-bottom: 0.5rem;
+    display: block;
+    min-height: 18px;
+}
+
+/* --- RESPONSIVE WEB DESIGN --- */
+
+/* 1. VISTA TABLET (max-width: 768px -> 48em) */
+@media (max-width: 48rem) {
+    .tarjeta-login {
+        max-width: 80%;
+        padding: 2.5rem 2rem;
+    }
+}
+
+/* 2. VISTA MOBILE (max-width: 600px -> 37.5em) */
+@media (max-width: 37.5em) {
+    .contenedor-principal {
+        padding: 1rem;
+        align-items: flex-start;
+    }
+
+    .tarjeta-login {
+        max-width: 100%;
+        padding: 1.5rem 1rem;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    .cabecera-principal {
+        padding: 1rem;
+    }
+
+    .cabecera-principal h1 {
+        font-size: 2rem;
+    }
+}
