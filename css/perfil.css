@@ -128,6 +128,32 @@
     border-color: #3b82f6;
 }
 
+/* =========================================
+   ESTILOS PARA LOS REQUISITOS DE CONTRASEÑA
+   ========================================= */
+.lista-requisitos {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+    font-size: 0.85rem;
+}
+
+.lista-requisitos li {
+    margin-bottom: 0.3rem;
+    transition: color 0.2s ease;
+}
+
+/* Estado inválido (gris sutil) */
+.lista-requisitos li.invalido {
+    color: #9ca3af;
+}
+
+/* Estado válido (verde éxito) */
+.lista-requisitos li.valido {
+    color: #10b981;
+    font-weight: 500;
+}
+
 /* 5. BOTONERA */
 .acciones-perfil {
     display: flex;

@@ -226,6 +226,23 @@
     background-color: #f9fafb;
     border-radius: 8px;
     border: 1px solid #f3f4f6;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto hover sencillo para las estadísticas en color naranja #f1a36f y letras blancas */
+.stat-item:hover {
+    transform: translateY(-2px);
+    background-color: #f1a36f;
+    border-color: #f1a36f;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.stat-item:hover .stat-info strong {
+    color: #ffffff;
+}
+
+.stat-item:hover .stat-info p {
+    color: #ffffff;
 }
 
 .stat-icono {
@@ -237,6 +254,7 @@
     font-size: 0.8rem;
     color: #9ca3af;
     text-transform: uppercase;
+    transition: color 0.2s;
 }
 
 .stat-info p {
@@ -244,6 +262,7 @@
     font-size: 1.1rem;
     font-weight: 600;
     color: #1f2937;
+    transition: color 0.2s;
 }
 
 /* --- RESPONSIVE WEB DESIGN --- */

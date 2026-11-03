@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         botonesContinuar.forEach(boton => {
             boton.addEventListener('click', (e) => {
                 const cursoId = e.target.getAttribute('data-id');
-                alert(`¡Preparando tu primera lección de ${cursoId}! Comencemos.`);
+                window.location.href = `curso-${cursoId}.html`;
             });
         });
     }

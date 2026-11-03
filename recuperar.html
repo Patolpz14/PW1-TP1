@@ -40,6 +40,13 @@
                 <label for="pass-confirma">
                     <span>Confirmar nueva contraseña:</span>
                     <input type="password" id="pass-confirma" name="confirmaPassword" placeholder="********" required>
+
+                    <ul class="requisitos-password">
+                        <li id="req-longitud" class="requisito"> * Entre 8 y 15 caracteres</li>
+                        <li id="req-especial" class="requisito"> * Al menos un carácter especial (!@#$%...)</li>
+                        <li id="req-mayuscula" class="requisito"> * Al menos una letra mayúscula</li>
+                        <li id="req-coinciden" class="requisito"> *Ambas contraseñas coinciden</li>
+                    </ul>// si no cumple esto, no se puede actualizar!! CORREGIR
                 </label>
 
                 <button type="submit" class="btn-primario">Actualizar Contraseña</button>
