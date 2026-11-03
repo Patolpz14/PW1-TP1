@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda y Rachas | Vocablo</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/tienda.css">
+</head>
+
+<body>
+
+    <header class="cabecera-dashboard">
+        <nav class="nav-principal">
+            <a href="dashboard.html" class="logo">
+                <img src="img/logo-vocablo.svg" alt="Logotipo de Vocablo">
+            </a>
+            <ul class="menu-usuario">
+                <li><a href="dashboard.html">Mis Cursos</a></li>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                <li><a href="ranking.html">Ranking</a></li>
+                <li><a href="tienda.html" class="activo">Tienda</a></li>
+                <li><a href="#" id="btn-cerrar-sesion">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="contenedor-principal">
+        <!-- Encabezado y navegación -->
+        <header class="encabezado-vista">
+            <h1>Rachas y Tienda</h1>
+            <a href="dashboard.html" class="btn-volver">Volver al Panel</a>
+        </header>
+
+        <!-- Sección Superior: Estado del usuario (Flexbox) -->
+        <section class="panel-estadisticas">
+            <div class="stat-card">
+                <span class="icono">🔥</span>
+                <div>
+                    <h3>Racha Actual</h3>
+                    <p id="racha-dias">5 Días</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span class="icono">🎯</span>
+                <div>
+                    <h3>Meta Diaria</h3>
+                    <!-- Etiqueta semántica para barras de progreso -->
+                    <progress id="meta-progreso" value="30" max="50"></progress>
+                    <p id="meta-texto">30 / 50 XP</p>
+                </div>
+            </div>
+
+            <div class="stat-card destaco">
+                <span class="icono">💎</span>
+                <div>
+                    <h3>Tu Saldo</h3>
+                    <p id="saldo-actual">450 XP</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Inferior: Tienda (CSS Grid) -->
+        <section class="panel-tienda">
+            <h2>Mejoras y Recompensas</h2>
+
+            <div class="grilla-tienda">
+                <!-- Ítem 1 -->
+                <article class="tarjeta-tienda">
+                    <div class="icono-item">🛡️</div>
+                    <h3>Protector de Racha</h3>
+                    <p>Salva tu racha si un día no podés practicar.</p>
+                    <!-- El atributo data-costo nos servirá para leer el precio en JS -->
+                    <button class="btn-comprar" data-costo="200" id="btn-protector">Comprar por 200 XP</button>
+                </article>
+
+                <!-- Ítem 2 -->
+                <article class="tarjeta-tienda">
+                    <div class="icono-item">❤️</div>
+                    <h3>Recarga de Vidas</h3>
+                    <p>Recuperá tus 3 vidas para seguir aprendiendo hoy.</p>
+                    <button class="btn-comprar" data-costo="50" id="btn-vidas">Comprar por 50 XP</button>
+                </article>
+
+                <!-- Ítem 3 -->
+                <article class="tarjeta-tienda">
+                    <div class="icono-item">👑</div>
+                    <h3>Avatar Dorado</h3>
+                    <p>Destacate en el ranking con un marco exclusivo para tu perfil.</p>
+                    <button class="btn-comprar" data-costo="500" id="btn-avatar">Comprar por 500 XP</button>
+                </article>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="js/views/tienda.js"></script>
+</body>
+
+</html>

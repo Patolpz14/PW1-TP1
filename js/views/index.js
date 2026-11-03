@@ -1,5 +1,5 @@
 // js/login.js
-import { validarCredenciales, guardarUsuarioActivo } from './storage.js';
+import { validarCredenciales, guardarUsuarioActivo } from '../services/storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.querySelector('.formulario-login');

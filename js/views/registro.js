@@ -1,5 +1,5 @@
 // js/registro.js
-import { obtenerUsuariosRegistrados, registrarUsuario, guardarUsuarioActivo } from './storage.js';
+import { obtenerUsuariosRegistrados, registrarUsuario, guardarUsuarioActivo } from '../services/storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.querySelector('.formulario-registro');

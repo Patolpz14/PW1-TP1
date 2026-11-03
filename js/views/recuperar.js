@@ -1,5 +1,5 @@
 // js/recuperar.js
-import { actualizarPassword } from './storage.js';
+import { actualizarPassword } from '../services/storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.querySelector('.formulario-login');

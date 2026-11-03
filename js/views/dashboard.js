@@ -1,5 +1,5 @@
 // js/dashboard.js
-import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from './storage.js';
+import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from '../services/storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Guardado de ruta: Si no hay usuario activo, lo regresamos al login

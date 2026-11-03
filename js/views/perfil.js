@@ -1,5 +1,5 @@
 // js/perfil.js
-import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from './storage.js';
+import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from '../services/storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Validar sesión activa

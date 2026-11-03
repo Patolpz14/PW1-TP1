@@ -1,4 +1,4 @@
-// js/storage.js
+// js/services/storage.js
 
 const USUARIOS_DB_KEY = 'usuariosRegistrados';
 const USUARIO_ACTIVO_KEY = 'usuarioActivo';
@@ -45,27 +45,26 @@ export function cerrarSesion() {
 export function validarCredenciales(usuarioOEmail, password) {
     const usuarios = obtenerUsuariosRegistrados();
 
-    // Buscamos si existe un usuario que coincida con el nombre/correo y la contraseña
+    // CORRECCIÓN: Se reemplazó user.correo por user.email
     const usuarioEncontrado = usuarios.find(user =>
-        (user.usuario === usuarioOEmail || user.correo === usuarioOEmail) && user.password === password
+        (user.usuario === usuarioOEmail || user.email === usuarioOEmail) && user.password === password
     );
 
-    // Retorna el objeto del usuario si lo encuentra, o undefined/null si falla
     return usuarioEncontrado || null;
 }
 
 export function actualizarPassword(usuarioOEmail, nuevaPassword) {
     const usuarios = obtenerUsuariosRegistrados();
-    const indice = usuarios.findIndex(user => user.usuario === usuarioOEmail || user.email === usuarioOEmail || user.correo === usuarioOEmail);
+
+    // CORRECCIÓN: Se reemplazó user.correo por user.email
+    const indice = usuarios.findIndex(user => user.usuario === usuarioOEmail || user.email === usuarioOEmail);
 
     if (indice === -1) {
         return false; // No se encontró el usuario
     }
 
-    // Actualizamos la contraseña del usuario encontrado
     usuarios[indice].password = nuevaPassword;
-
-    // Guardamos la lista actualizada en el localStorage
     localStorage.setItem(USUARIOS_DB_KEY, JSON.stringify(usuarios));
+
     return true; // Éxito
 }

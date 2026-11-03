@@ -1,0 +1,90 @@
+/* Contenedor principal */
+.contenedor-principal {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.encabezado-vista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* --- Panel de Estadísticas (Flexbox) --- */
+.panel-estadisticas {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    /* Permite que salten de línea en celulares */
+}
+
+.stat-card {
+    flex: 1 1 250px;
+    /* Crecen y se encogen, base 250px */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+}
+
+.stat-card.destaco {
+    background-color: #fff8e1;
+    border-color: #ffe082;
+}
+
+.icono {
+    font-size: 2.5rem;
+}
+
+progress {
+    width: 100%;
+    height: 10px;
+    margin: 10px 0;
+}
+
+/* --- Panel de Tienda (CSS Grid) --- */
+.grilla-tienda {
+    display: grid;
+    /* Crea tantas columnas como entren, con un mínimo de 250px cada una */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.tarjeta-tienda {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.icono-item {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.btn-comprar {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-comprar:hover {
+    background-color: #218838;
+}
