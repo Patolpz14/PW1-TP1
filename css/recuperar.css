@@ -1,8 +1,7 @@
 /* =========================================
-   RECUPERAR.CSS - Estilos de la Vista de Recuperación
+   RECUPERAR.CSS - Vista de Recuperación
    ========================================= */
 
-/* 1. CABECERA INSTITUCIONAL */
 .cabecera-principal {
     display: flex;
     flex-direction: column;
@@ -24,7 +23,6 @@
     font-size: 1rem;
 }
 
-/* 2. CONTENEDOR CENTRAL */
 .contenedor-principal {
     display: flex;
     justify-content: center;
@@ -33,7 +31,6 @@
     padding: 2rem;
 }
 
-/* 3. TARJETA DE RECUPERACIÓN */
 .tarjeta-recuperar {
     background-color: #ffffff;
     width: 100%;
@@ -56,7 +53,6 @@
     font-size: 0.95rem;
 }
 
-/* 4. FORMULARIO INTERNO */
 .formulario-recuperar {
     display: flex;
     flex-direction: column;
@@ -68,31 +64,27 @@
     font-weight: bold;
     color: #555555;
     font-size: 0.95rem;
-    margin-bottom: 0.3rem;
-}
-
-.formulario-recuperar label>span:first-child {
-    margin-bottom: 2px;
+    margin-bottom: 0.8rem;
 }
 
 .formulario-recuperar input {
     width: 100%;
     padding: 0.8em;
     margin-top: 0.4em;
-    margin-bottom: 0.2rem;
     border: 2px solid #cbd5e1;
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
+    font-family: inherit;
 }
 
 .formulario-recuperar input:focus {
     border-color: #3b82f6;
 }
 
-/* Botón con tu color #f1a36f */
+/* Botón con el color corporativo #f1a36f */
 .formulario-recuperar .btn-primario {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     background-color: #f1a36f;
     color: #ffffff;
     border: none;
@@ -109,7 +101,6 @@
     background-color: #df915b;
 }
 
-/* 5. ENLACES SECUNDARIOS */
 .enlaces-secundarios {
     display: flex;
     flex-direction: column;
@@ -131,18 +122,29 @@
     text-decoration: underline;
 }
 
-/* 6. ESTILOS DE ERROR */
-.formulario-recuperar input.error {
-    border: 2px solid #e74c3c !important;
-    background-color: #fdf2f2 !important;
-}
-
-.mensaje-error {
-    color: #e74c3c;
+/* =========================================
+   ESTILOS PARA LOS REQUISITOS DE CONTRASEÑA
+   ========================================= */
+.lista-requisitos {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
     font-size: 0.85rem;
     font-weight: normal;
-    margin-top: 4px;
-    margin-bottom: 0.5rem;
-    display: block;
-    min-height: 18px;
+}
+
+.lista-requisitos li {
+    margin-bottom: 0.3rem;
+    transition: color 0.2s ease;
+}
+
+/* Estado inválido por defecto (gris sutil) */
+.lista-requisitos li.invalido {
+    color: #9ca3af;
+}
+
+/* Estado válido cuando cumple el requisito (verde éxito) */
+.lista-requisitos li.valido {
+    color: #10b981;
+    font-weight: 500;
 }
