@@ -32,16 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalNiveles = 9;
 
         usuarioActual.cursos.forEach(curso => {
-<<<<<<< HEAD
-            // 1. Buscamos cuántos niveles completó de este idioma específico
-            let nivelesCompletados = 0;
-            if (usuarioActual.progreso && usuarioActual.progreso[curso.id]) {
-                nivelesCompletados = usuarioActual.progreso[curso.id].length;
-            }
-
-            // 2. Calculamos el porcentaje exacto y lo redondeamos
-            const porcentaje = Math.round((nivelesCompletados / totalNiveles) * 100);
-=======
             const datosCurso = baseDeCursos[curso.id];
 
             if (!datosCurso) {
@@ -58,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const porcentaje = totalCheckpoints > 0
                 ? Math.round((checkpointsCompletados / totalCheckpoints) * 100)
                 : 0;
->>>>>>> e3ad8c12649741787ddac74ee06608d46a816631
 
             const tarjeta = document.createElement('div');
             tarjeta.classList.add('tarjeta-curso');
