@@ -71,7 +71,7 @@ export function actualizarPassword(usuarioOEmail, nuevaPassword) {
 
 // js/services/storage.js
 
-export function obtenerUsuariosRegistrados() {
+/*export function obtenerUsuariosRegistrados() {
     let usuarios = JSON.parse(localStorage.getItem('usuariosRegistrados'));
 
     // Si el localStorage está vacío, inyectamos los 15 usuarios de prueba automáticamente
@@ -187,4 +187,4 @@ export function obtenerUsuariosRegistrados() {
     }
 
     return usuarios;
-}
+}*/
