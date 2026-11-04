@@ -86,7 +86,8 @@
 
 }
 
-.formulario-login .btn-primario {
+.formulario-login .btn-primario,
+.formulario-registro .btn-primario {
     margin-top: 1rem;
     background-color: #f1a36f;
     color: #ffffff;
@@ -99,7 +100,8 @@
     transition: background-color 0.2s ease;
 }
 
-.formulario-login .btn-primario:hover {
+.formulario-login .btn-primario:hover,
+.formulario-registro .btn-primario:hover {
     background-color: #df915b;
 }
 

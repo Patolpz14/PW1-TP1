@@ -5,40 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vocablo - Recuperar Contraseña</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/recuperar.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/recuperar.css">
 </head>
 
 <body>
 
     <header class="cabecera-principal">
-        <img src="img/logo-vocablo.svg" alt="Logotipo de Vocablo">
+        <img src="../img/logo-vocablo.svg" alt="Logotipo de Vocablo">
         <p>Aprende Inglés, Alemán, Chino y Coreano gratis y de forma divertida</p>
     </header>
 
     <main class="contenedor-principal">
         <section class="tarjeta-recuperar">
-            <h2>Restablecer Contraseña</h2>
+            <h2>Recuperar contraseña</h2>
             <p class="texto-instrucciones">
-                Ingresa tu correo registrado y tu nueva contraseña (de 8 a 15 caracteres, con una mayúscula y un
-                carácter especial).
+                Ingresa el correo de tu cuenta y elige una nueva contraseña. En esta versión de práctica, el cambio
+                se guarda localmente en este navegador; no se envía ningún correo de verificación.
             </p>
-
-            <form id="form-recuperar" class="formulario-recuperar">
-
+            <form id="form-recuperar" class="formulario-recuperar" method="post">
                 <label for="email-recuperar">
-                    <span>Correo electrónico:</span>
-                    <input type="email" id="email-recuperar" name="email" placeholder="usuario@ejemplo.com" required>
+                    <span>Correo electrónico registrado:</span>
+                    <input type="email" id="email-recuperar" name="email" placeholder="usuario@ejemplo.com"
+                        autocomplete="email" required>
                 </label>
 
                 <label for="pass-nueva">
                     <span>Nueva contraseña:</span>
-                    <input type="password" id="pass-nueva" name="nuevaPassword" placeholder="********" required>
+                    <input type="password" id="pass-nueva" name="nuevaPassword" placeholder="Nueva contraseña"
+                        autocomplete="new-password" required>
                 </label>
 
                 <label for="pass-confirma">
                     <span>Confirmar nueva contraseña:</span>
-                    <input type="password" id="pass-confirma" name="confirmaPassword" placeholder="********" required>
+                    <input type="password" id="pass-confirma" name="confirmaPassword"
+                        placeholder="Repite la nueva contraseña" autocomplete="new-password" required>
 
                     <ul class="lista-requisitos">
                         <li id="req-longitud" class="invalido">*Entre 8 y 15 caracteres</li>
@@ -48,16 +49,15 @@
                     </ul>
                 </label>
 
-                <button type="submit" class="btn-primario">Actualizar Contraseña</button>
+                <button type="submit" class="btn-primario">Actualizar contraseña</button>
             </form>
-
             <nav class="enlaces-secundarios">
                 <a href="index.html">← Volver al inicio de sesión</a>
             </nav>
         </section>
     </main>
 
-    <script type="module" src="js/views/recuperar.js"></script>
+    <script type="module" src="../js/views/recuperar.js"></script>
 </body>
 
 </html>

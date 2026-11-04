@@ -1,4 +1,9 @@
-import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from '../services/storage.js';
+import {
+    obtenerUsuarioActivo,
+    obtenerUsuariosRegistrados,
+    obtenerXpDiaria,
+    cerrarSesion
+} from '../services/storage.js';
 import { baseDeCursos } from '../models/datos-cursos.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,13 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
         spanNombre.textContent = usuarioActual.nombre;
     }
 
+    const enlaceCoreano = document.getElementById('enlace-curso-coreano');
+    if (enlaceCoreano && usuarioActual.cursos.some(curso => curso.id === 'coreano')) {
+        enlaceCoreano.href = 'curso.html?idioma=coreano';
+    }
+
     const grillaCursos = document.getElementById('grilla-cursos');
 
     if (grillaCursos && usuarioActual.cursos) {
         grillaCursos.innerHTML = '';
-
-        // El total de niveles por idioma es 9 (3 unidades de 3 checkpoints)
-        const totalNiveles = 9;
 
         usuarioActual.cursos.forEach(curso => {
             const datosCurso = baseDeCursos[curso.id];
@@ -70,9 +77,30 @@ document.addEventListener('DOMContentLoaded', () => {
             grillaCursos.appendChild(tarjeta);
         });
 
+        const tieneCoreano = usuarioActual.cursos.some(curso => curso.id === 'coreano');
+        if (!tieneCoreano) {
+            const tarjetaBloqueada = document.createElement('div');
+            tarjetaBloqueada.classList.add('tarjeta-curso', 'curso-bloqueado');
+            tarjetaBloqueada.innerHTML = `
+                <div class="curso-header">
+                    <img src="../img/corea-del-sur.png" alt="Bandera de Coreano" class="bandera-curso">
+                    <h3>Coreano</h3>
+                </div>
+                <div class="curso-body">
+                    <p>Curso bloqueado</p>
+                    <span>Desbloquéalo por 500 XP en la tienda.</span>
+                </div>
+                <a href="tienda.html#curso-coreano" class="btn-desbloquear" aria-label="Ir a la tienda para desbloquear Coreano por 500 XP">
+                    🛒 500 XP
+                </a>
+            `;
+            grillaCursos.appendChild(tarjetaBloqueada);
+        }
+
         const listaEstadisticas = document.getElementById('lista-estadisticas');
 
         if (listaEstadisticas && usuarioActual.estadisticas) {
+            const xpDiaria = obtenerXpDiaria(usuarioActual);
             listaEstadisticas.innerHTML = `
                 <li class="stat-item">
                     <span class="stat-icono">🔥</span>
@@ -85,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="stat-icono">⚡</span>
                     <div class="stat-info">
                         <strong>Experiencia</strong>
-                        <p>${usuarioActual.estadisticas.xp} XP</p>
+                        <p>${usuarioActual.estadisticas.xp} XP (${xpDiaria} hoy)</p>
                     </div>
                 </li>
                 <li class="stat-item">

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vocablo - Mi Panel de Aprendizaje</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <header class="cabecera-dashboard">
         <nav class="nav-principal">
             <a href="dashboard.html" class="logo">
-                <span class="logo-icono"><img src="img/logo-vocablo.svg" alt="Logo Vocablo"></span>
+                <span class="logo-icono"><img src="../img/logo-vocablo.svg" alt="Logo Vocablo"></span>
             </a>
 
             <!-- BUSCADOR / MENÚ DESPLEGABLE CON DETAILS -->
@@ -25,27 +25,27 @@
                 </summary>
                 <ul class="lista-cursos">
                     <li>
-                        <a href="curso-ingles.html">
+                        <a href="curso.html?idioma=ingles">
                             <span>Inglés</span>
-                            <img src="img/reino-unido.png" alt="Bandera UK">
+                            <img src="../img/reino-unido.png" alt="Bandera UK">
                         </a>
                     </li>
                     <li>
-                        <a href="curso-aleman.html">
+                        <a href="curso.html?idioma=aleman">
                             <span>Alemán</span>
-                            <img src="img/alemania.png" alt="Bandera Alemania">
+                            <img src="../img/alemania.png" alt="Bandera Alemania">
                         </a>
                     </li>
                     <li>
-                        <a href="curso-chino.html">
+                        <a href="curso.html?idioma=chino">
                             <span>Chino</span>
-                            <img src="img/china.png" alt="Bandera China">
+                            <img src="../img/china.png" alt="Bandera China">
                         </a>
                     </li>
                     <li>
-                        <a href="curso-coreano.html">
+                        <a id="enlace-curso-coreano" href="tienda.html#curso-coreano">
                             <span>Coreano</span>
-                            <img src="img/corea-del-sur.png" alt="Bandera Corea">
+                            <img src="../img/corea-del-sur.png" alt="Bandera Corea">
                         </a>
                     </li>
                 </ul>
@@ -80,7 +80,7 @@
                 <!-- Tarjeta 1: Inglés -->
                 <div class="tarjeta-curso" data-curso-id="ingles">
                     <div class="curso-header">
-                        <img src="img/reino-unido.png" alt="Bandera de Inglés" class="bandera-curso">
+                        <img src="../img/reino-unido.png" alt="Bandera de Inglés" class="bandera-curso">
                         <h3>Inglés</h3>
                     </div>
                     <div class="curso-body">
@@ -96,7 +96,7 @@
                 <!-- Tarjeta 2: Alemán -->
                 <div class="tarjeta-curso" data-curso-id="aleman">
                     <div class="curso-header">
-                        <img src="img/alemania.png" alt="Bandera de Alemán" class="bandera-curso">
+                        <img src="../img/alemania.png" alt="Bandera de Alemán" class="bandera-curso">
                         <h3>Alemán</h3>
                     </div>
                     <div class="curso-body">
@@ -112,7 +112,7 @@
                 <!-- Tarjeta 3: Chino -->
                 <div class="tarjeta-curso" data-curso-id="chino">
                     <div class="curso-header">
-                        <img src="img/china.png" alt="Bandera de Chino" class="bandera-curso">
+                        <img src="../img/china.png" alt="Bandera de Chino" class="bandera-curso">
                         <h3>Chino</h3>
                     </div>
                     <div class="curso-body">
@@ -128,7 +128,7 @@
                 <!-- Tarjeta 4: Coreano -->
                 <div class="tarjeta-curso" data-curso-id="coreano">
                     <div class="curso-header">
-                        <img src="img/corea-del-sur.png" alt="Bandera de Coreano" class="bandera-curso">
+                        <img src="../img/corea-del-sur.png" alt="Bandera de Coreano" class="bandera-curso">
                         <h3>Coreano</h3>
                     </div>
                     <div class="curso-body">
@@ -175,7 +175,7 @@
     </main>
 
     <!-- Script del Dashboard -->
-    <script type="module" src="js/views/dashboard.js"></script>
+    <script type="module" src="../js/views/dashboard.js"></script>
 </body>
 
 </html>

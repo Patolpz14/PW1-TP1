@@ -1,5 +1,11 @@
 // js/perfil.js
-import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from '../services/storage.js';
+import { obtenerAvatar } from '../models/avatares.js';
+import {
+    obtenerUsuarioActivo,
+    obtenerUsuariosRegistrados,
+    seleccionarAvatar,
+    cerrarSesion
+} from '../services/storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Validar sesión activa
@@ -23,6 +29,81 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('perfil-nombre').textContent = usuarioActual.nombre;
     document.getElementById('perfil-arroba').textContent = `@${usuarioActual.nombre.toLowerCase().replace(/\s+/g, '')}`;
     document.getElementById('perfil-email').textContent = usuarioActual.email;
+
+    const avatarActual = document.getElementById('avatar-actual');
+    const dialogoAvatares = document.getElementById('dialogo-avatares');
+    const listaAvatares = document.getElementById('lista-avatares-adquiridos');
+
+    function renderizarAvatarActual() {
+        avatarActual.replaceChildren();
+        const avatar = obtenerAvatar(usuarioActual.avatar);
+
+        if (avatar) {
+            avatarActual.textContent = avatar.icono;
+            avatarActual.style.backgroundColor = avatar.color;
+        } else {
+            const imagen = document.createElement('img');
+            imagen.src = '../img/avatar-generico.png';
+            imagen.alt = '';
+            avatarActual.appendChild(imagen);
+            avatarActual.style.backgroundColor = '';
+        }
+    }
+
+    function renderizarAvataresAdquiridos() {
+        listaAvatares.innerHTML = '';
+        usuarioActual.avatares.forEach(avatarId => {
+            const avatar = obtenerAvatar(avatarId);
+            const esAvatarInicial = avatarId === 'avatar-generico';
+            if (!avatar && !esAvatarInicial) return;
+
+            const opcion = document.createElement('button');
+            opcion.type = 'button';
+            opcion.classList.add('opcion-avatar');
+            opcion.setAttribute('aria-pressed', String(usuarioActual.avatar === avatarId));
+            if (usuarioActual.avatar === avatarId) opcion.classList.add('seleccionado');
+
+            const muestra = document.createElement('span');
+            muestra.classList.add('muestra-avatar');
+            muestra.setAttribute('aria-hidden', 'true');
+            if (avatar) {
+                muestra.textContent = avatar.icono;
+                muestra.style.backgroundColor = avatar.color;
+            } else {
+                muestra.textContent = '👤';
+                muestra.style.backgroundColor = '#e5e7eb';
+            }
+
+            const nombre = document.createElement('span');
+            nombre.textContent = avatar?.nombre ?? 'Clásico';
+
+            const estado = document.createElement('span');
+            estado.classList.add('estado-avatar');
+            estado.textContent = usuarioActual.avatar === avatarId ? 'En uso' : 'Usar';
+
+            opcion.append(muestra, nombre, estado);
+            opcion.addEventListener('click', () => {
+                if (!seleccionarAvatar(usuarioActivo, avatarId)) {
+                    alert('No se pudo seleccionar este avatar. Actualiza la página e inténtalo de nuevo.');
+                    return;
+                }
+                usuarioActual.avatar = avatarId;
+                renderizarAvatarActual();
+                renderizarAvataresAdquiridos();
+            });
+            listaAvatares.appendChild(opcion);
+        });
+    }
+
+    renderizarAvatarActual();
+
+    document.getElementById('btn-editar-avatar').addEventListener('click', () => {
+        renderizarAvataresAdquiridos();
+        dialogoAvatares.showModal();
+    });
+    document.getElementById('btn-cerrar-avatares').addEventListener('click', () => {
+        dialogoAvatares.close();
+    });
 
     if (usuarioActual.estadisticas) {
         document.getElementById('perfil-xp').textContent = `${usuarioActual.estadisticas.xp} XP`;

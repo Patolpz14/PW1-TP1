@@ -1,61 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vocablo - Iniciar Sesión</title>
-
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/index.css">
+    <meta http-equiv="refresh" content="0; url=html/index.html">
+    <title>Vocablo</title>
 </head>
-
 <body>
-
-    <!-- CABECERA INSTITUCIONAL -->
-    <header class="cabecera-principal">
-        <img src="img/logo-vocablo.svg" alt="Logotipo de Vocablo">
-        <p>Aprende Inglés, Alemán, Chino y Coreano gratis y de forma divertida</p>
-    </header>
-
-    <!-- CONTENEDOR CENTRAL -->
-    <main class="contenedor-principal">
-
-        <!-- TARJETA DE LOGIN -->
-        <section class="tarjeta-login">
-
-            <h2>Ingresa a tu cuenta</h2>
-
-            <form id="form-login" class="formulario-login">
-
-                <label for="usuario">
-                    <span>Usuario o correo:</span>
-                    <input type="text" id="usuario" name="usuario" placeholder="Ej: Juan Pérez" required>
-                    <span class="mensaje-error" id="error-usuario"></span>
-                </label>
-
-                <label for="password">
-                    <span>Contraseña:</span>
-                    <span class="password-wrapper">
-                        <input type="password" id="password" name="password" placeholder="********" required>
-                    </span>
-                    <span class="mensaje-error" id="error-password"></span>
-                </label>
-
-                <button type="submit" class="btn-primario">Iniciar Sesión</button>
-            </form>
-
-            <nav class="enlaces-secundarios">
-                <a href="recuperar.html">¿Olvidaste tu contraseña?</a>
-                <a href="registro.html">¿No tienes cuenta? Créala aquí</a>
-            </nav>
-
-        </section>
-
-    </main>
-
-    <!-- Script del Login -->
-    <script type="module" src="js/views/index.js"></script>
+    <p>Abriendo Vocablo. Si no funciona, <a href="html/index.html">continúa aquí</a>.</p>
+    <script>window.location.replace('html/index.html');</script>
 </body>
-
 </html>

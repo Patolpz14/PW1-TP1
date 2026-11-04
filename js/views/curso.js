@@ -11,19 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const usuarios = obtenerUsuariosRegistrados();
     const usuarioData = usuarios.find(u => u.email === usuarioActivo);
-    const xpReal = usuarioData ? usuarioData.estadisticas.xp : 0;
+    if (!usuarioData) {
+        window.location.href = 'index.html';
+        return;
+    }
 
     const parametrosUrl = new URLSearchParams(window.location.search);
     const idiomaId = parametrosUrl.get('idioma');
 
-    const progresoUsuario = (usuarioData && usuarioData.progreso && usuarioData.progreso[idiomaId])
-        ? usuarioData.progreso[idiomaId]
-        : [];
-
-    if (!idiomaId || !baseDeCursos[idiomaId]) {
+    if (!idiomaId || !baseDeCursos[idiomaId] || !usuarioData.cursos?.some(curso => curso.id === idiomaId)) {
         window.location.href = 'dashboard.html';
         return;
     }
+
+    const xpReal = usuarioData.estadisticas?.xp ?? 0;
+    const progresoUsuario = (usuarioData && usuarioData.progreso && usuarioData.progreso[idiomaId])
+        ? usuarioData.progreso[idiomaId]
+        : [];
 
     const datosCurso = baseDeCursos[idiomaId];
 

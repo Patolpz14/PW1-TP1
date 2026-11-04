@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vocablo - Perfil de Usuario</title>
 
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/perfil.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     <header class="cabecera-dashboard">
         <nav class="nav-principal">
             <a href="dashboard.html" class="logo">
-                <img src="img/logo-vocablo.svg" alt="Logotipo de Vocablo">
+                <img src="../img/logo-vocablo.svg" alt="Logotipo de Vocablo">
             </a>
             <ul class="menu-usuario">
                 <li><a href="dashboard.html">Mis Cursos</a></li>
@@ -36,7 +36,11 @@
 
             <!-- COLUMNA IZQUIERDA: Tarjeta de Identidad y Logros -->
             <aside class="tarjeta-identidad">
-                <img src="img/avatar-generico.png" alt="Foto de perfil" class="avatar-usuario">
+                <div class="avatar-con-edicion">
+                    <div id="avatar-actual" class="avatar-usuario" role="img" aria-label="Avatar de perfil"></div>
+                    <button id="btn-editar-avatar" class="btn-editar-avatar" type="button"
+                        aria-label="Cambiar avatar" title="Cambiar avatar">✎</button>
+                </div>
                 <h2 id="perfil-nombre">Cargando...</h2>
                 <p class="usuario-arroba" id="perfil-arroba">@usuario</p>
                 <p class="fecha-miembro">Miembro de Vocablo</p>
@@ -102,10 +106,21 @@
             </section>
 
         </div>
+
+        <dialog id="dialogo-avatares" class="dialogo-avatares" aria-labelledby="titulo-avatares">
+            <div class="encabezado-dialogo-avatares">
+                <h2 id="titulo-avatares">Mis avatares</h2>
+                <button id="btn-cerrar-avatares" class="btn-cerrar-avatares" type="button"
+                    aria-label="Cerrar selección de avatares">×</button>
+            </div>
+            <p>Selecciona uno de tus avatares adquiridos.</p>
+            <div id="lista-avatares-adquiridos" class="lista-avatares-adquiridos"></div>
+            <a class="enlace-tienda-avatares" href="tienda.html#seccion-avatares">Ver avatares en la tienda</a>
+        </dialog>
     </main>
 
     <!-- Script del Perfil como Módulo -->
-    <script type="module" src="js/views/perfil.js"></script>
+    <script type="module" src="../js/views/perfil.js"></script>
 </body>
 
 </html>

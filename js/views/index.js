@@ -20,14 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (errorPassword) errorPassword.textContent = '';
     }
 
-    inputUsuario.addEventListener('focus', () => {
-        inputUsuario.value = ''; // Borra lo escrito anteriormente
+    inputUsuario.addEventListener('input', () => {
         inputUsuario.classList.remove('error');
         if (errorUsuario) errorUsuario.textContent = '';
     });
 
-    inputPassword.addEventListener('focus', () => {
-        inputPassword.value = ''; // Borra lo escrito anteriormente
+    inputPassword.addEventListener('input', () => {
         inputPassword.classList.remove('error');
         if (errorPassword) errorPassword.textContent = '';
     });
@@ -40,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         limpiarErrores();
 
         const usuarioVal = inputUsuario.value.trim();
-        const passwordVal = inputPassword.value.trim();
+        const passwordVal = inputPassword.value;
 
         let hayErrores = false;
 
@@ -70,8 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             inputPassword.classList.add('error');
 
             // - Mostramos los textos de error en los spans
-            if (errorUsuario) errorUsuario.textContent = 'Usuario o correo incorrecto.';
-            if (errorPassword) errorPassword.textContent = 'Contraseña incorrecta.';
+            if (errorUsuario) errorUsuario.textContent = 'El usuario o correo y la contraseña no coinciden.';
 
             // IMPORTANTE: Ya no borramos inputPassword.value para que no se pierda lo que tipeaste.
             return;

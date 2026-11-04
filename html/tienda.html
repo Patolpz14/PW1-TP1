@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda y Rachas | Vocablo</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/tienda.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/tienda.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
     <header class="cabecera-dashboard">
         <nav class="nav-principal">
             <a href="dashboard.html" class="logo">
-                <img src="img/logo-vocablo.svg" alt="Logotipo de Vocablo">
+                <img src="../img/logo-vocablo.svg" alt="Logotipo de Vocablo">
             </a>
             <ul class="menu-usuario">
                 <li><a href="dashboard.html">Mis Cursos</a></li>
@@ -65,37 +65,51 @@
 
         <!-- Sección Inferior: Tienda (CSS Grid) -->
         <section class="panel-tienda">
-            <h2>Mejoras y Recompensas</h2>
+            <h2>Cursos disponibles</h2>
 
+            <div class="grilla-tienda">
+                <article class="tarjeta-tienda" id="curso-coreano">
+                    <div class="icono-item">🇰🇷</div>
+                    <h3>Curso de Coreano</h3>
+                    <p>Desbloquea el curso de Coreano y empieza a aprender desde el nivel inicial.</p>
+                    <button class="btn-comprar" id="btn-comprar-coreano" type="button">Desbloquear por 500 XP</button>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="panel-tienda" id="seccion-avatares">
+            <h2>Avatar</h2>
+            <p class="descripcion-seccion">Elige entre distintos modelos para personalizar tu perfil. Cada avatar cuesta 10 XP.</p>
+            <div id="grilla-avatares" class="grilla-tienda grilla-avatares"></div>
+        </section>
+
+        <section class="panel-tienda">
+            <h2>Mejoras y Recompensas</h2>
             <div class="grilla-tienda">
                 <!-- Ítem 1 -->
                 <article class="tarjeta-tienda">
                     <div class="icono-item">🛡️</div>
                     <h3>Protector de Racha</h3>
-                    <p>Salva tu racha si un día no podés practicar.</p>
+                    <p>Evita perder un día de tu racha cuando retomes la práctica después de una pausa breve.</p>
+                    <p>En inventario: <strong id="cantidad-protectores">0</strong></p>
                     <!-- El atributo data-costo nos servirá para leer el precio en JS -->
-                    <button class="btn-comprar" data-costo="200" id="btn-protector">Comprar por 200 XP</button>
+                    <button class="btn-comprar" data-articulo="protectorRacha" id="btn-protector">Comprar por 200 XP</button>
                 </article>
 
                 <!-- Ítem 2 -->
                 <article class="tarjeta-tienda">
                     <div class="icono-item">❤️</div>
                     <h3>Recarga de Vidas</h3>
-                    <p>Recuperá tus 3 vidas para seguir aprendiendo hoy.</p>
-                    <button class="btn-comprar" data-costo="50" id="btn-vidas">Comprar por 50 XP</button>
+                    <p>Agrega 3 vidas a tu próxima lección. La recarga se consume al comenzarla.</p>
+                    <p>En inventario: <strong id="cantidad-recargas">0</strong></p>
+                    <button class="btn-comprar" data-articulo="recargaVidas" id="btn-vidas">Comprar por 50 XP</button>
                 </article>
 
-                <!-- Ítem 3 -->
-                <article class="tarjeta-tienda">
-                    <div class="icono-item">👑</div>
-                    <h3>Avatar Dorado</h3>
-                    <p>Destacate en el ranking con un marco exclusivo para tu perfil.</p>
-                    <button class="btn-comprar" data-costo="500" id="btn-avatar">Comprar por 500 XP</button>
-                </article>
             </div>
         </section>
     </main>
-    <script type="module" src="js/views/tienda.js"></script>
+    <script type="module" src="../js/views/tienda.js"></script>
 </body>
 
 </html>

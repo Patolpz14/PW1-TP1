@@ -68,6 +68,45 @@ progress {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
+.tarjeta-tienda[hidden] {
+    display: none;
+}
+
+.panel-tienda {
+    margin-bottom: 3rem;
+}
+
+.panel-tienda h2 {
+    margin-bottom: 0.5rem;
+}
+
+.descripcion-seccion {
+    color: #6b7280;
+}
+
+.grilla-avatares {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.tarjeta-avatar {
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tarjeta-avatar h3 {
+    margin: 0;
+}
+
+.muestra-avatar {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 3rem;
+}
+
 .icono-item {
     font-size: 4rem;
     margin-bottom: 15px;
@@ -76,15 +115,19 @@ progress {
 .btn-comprar {
     margin-top: 20px;
     padding: 12px;
-    background-color: #28a745;
+    background-color: #f1a36f;
     color: white;
     border: none;
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .btn-comprar:hover {
-    background-color: #218838;
+    background-color: #df915b;
+}
+
+.btn-comprar:active {
+    transform: translateY(1px);
 }
