@@ -3,7 +3,6 @@ import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from '
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. VALIDACIÓN DE SESIÓN (Seguridad)
-    // Si alguien entra a tienda.html sin loguearse, lo pateamos al index
     const usuarioActivo = obtenerUsuarioActivo();
     if (!usuarioActivo) {
         window.location.href = 'index.html';
@@ -15,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const usuarioActual = usuarios.find(user => user.email === usuarioActivo);
 
     if (!usuarioActual) {
+        cerrarSesion();
         window.location.href = 'index.html';
         return;
     }
@@ -28,12 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. FUNCIÓN PARA ACTUALIZAR LA PANTALLA
     const actualizarInterfaz = () => {
-        // Leemos los datos reales desde usuarioActual.estadisticas
         if (textoRacha) textoRacha.innerText = `${usuarioActual.estadisticas.racha} Días`;
         if (textoSaldo) textoSaldo.innerText = `${usuarioActual.estadisticas.xp} XP`;
 
-        // Como la meta diaria es visual por ahora, la dejamos en un valor estático 
-        // hasta que implementemos la lógica de jugar lecciones reales.
         const metaActual = 30;
         const metaTotal = 50;
         if (textoMeta) textoMeta.innerText = `${metaActual} / ${metaTotal} XP`;
@@ -50,9 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Descontamos el valor
                 usuarioActual.estadisticas.xp -= costo;
 
-                // ACTUALIZAMOS LA BASE DE DATOS LOCAL
-                // Buscamos la posición de este usuario en el array general
-                const index = usuarios.findIndex(user => user.nombre === usuarioActivoNombre);
+                // CORRECCIÓN: Buscamos por email usando la variable correcta (usuarioActivo)
+                const index = usuarios.findIndex(user => user.email === usuarioActivo);
+
                 if (index !== -1) {
                     // Reemplazamos los datos viejos con los nuevos
                     usuarios[index] = usuarioActual;
@@ -77,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'index.html';
         });
     }
-
 
     // 6. INICIALIZACIÓN
     actualizarInterfaz();
