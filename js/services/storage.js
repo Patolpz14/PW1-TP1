@@ -15,7 +15,7 @@ export function registrarUsuario(nuevoUsuario) {
     const usuarioConEstructuraBase = {
         ...nuevoUsuario,
         cursos: [
-            { id: "ingles", nombre: "Inglés", bandera: "../img/reino-unido.png", nivel: "Básico", progreso: 0 },
+            { id: "ingles", nombre: "Inglés", bandera: "../img/reino-unido.png", nivel: "Inicial", progreso: 0 },
             { id: "aleman", nombre: "Alemán", bandera: "../img/alemania.png", nivel: "Inicial", progreso: 0 },
             { id: "chino", nombre: "Chino", bandera: "../img/china.png", nivel: "Inicial", progreso: 0 },
             { id: "coreano", nombre: "Coreano", bandera: "../img/corea-del-sur.png", nivel: "Inicial", progreso: 0 }
@@ -30,8 +30,8 @@ export function registrarUsuario(nuevoUsuario) {
     localStorage.setItem(USUARIOS_DB_KEY, JSON.stringify(usuarios));
 }
 
-export function guardarUsuarioActivo(nombreUsuario) {
-    localStorage.setItem(USUARIO_ACTIVO_KEY, nombreUsuario);
+export function guardarUsuarioActivo(emailUsuario) {
+    localStorage.setItem(USUARIO_ACTIVO_KEY, emailUsuario);
 }
 
 export function obtenerUsuarioActivo() {

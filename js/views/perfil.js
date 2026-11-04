@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             usuarioActual.password = passNueva;
 
             // Guardar cambios en el array general de usuarios y actualizar localStorage
-            const index = usuarios.findIndex(user => user.nombre === usuarioActivoNombre);
+            const index = usuarios.findIndex(user => user.email === usuarioActivo);
             if (index !== -1) {
                 usuarios[index] = usuarioActual;
                 localStorage.setItem('usuariosRegistrados', JSON.stringify(usuarios));

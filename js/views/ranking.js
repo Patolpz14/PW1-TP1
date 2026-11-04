@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 3. Ordenamos a los usuarios filtrados de mayor a menor según su XP
         usuariosDeLiga.sort((a, b) => {
-            const xpA = a.estadisticas?.xp || a.xp || 0;
-            const xpB = b.estadisticas?.xp || b.xp || 0;
+            const xpA = a.estadisticas?.xp || 0;
+            const xpB = b.estadisticas?.xp || 0;
             return xpB - xpA;
         });
 

@@ -4,8 +4,8 @@ import { obtenerUsuarioActivo, obtenerUsuariosRegistrados } from '../services/st
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Seguridad: Validar que haya un usuario logueado
-    const usuarioActivoNombre = obtenerUsuarioActivo();
-    if (!usuarioActivoNombre) {
+    const usuarioActivo = obtenerUsuarioActivo();
+    if (!usuarioActivo) {
         window.location.href = 'index.html';
         return;
     }
@@ -137,14 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Herramienta interna para actualizar la base de datos
     function sumarXP(cantidadXP) {
         const usuarios = obtenerUsuariosRegistrados();
-        const index = usuarios.findIndex(user => user.nombre === usuarioActivoNombre);
+        const index = usuarios.findIndex(user => user.email === usuarioActivo);
         if (index !== -1) {
             usuarios[index].estadisticas.xp += cantidadXP;
             // Evaluamos la liga acá mismo para aprovechar el impulso
             const xpTotal = usuarios[index].estadisticas.xp;
             if (xpTotal >= 3000) usuarios[index].estadisticas.liga = "Oro";
             else if (xpTotal >= 1000) usuarios[index].estadisticas.liga = "Plata";
-            else usuarios[index].estadisticas.liga = "Bronce";
+            else usuarios[index].estadisticas.liga = "bronce";
 
             localStorage.setItem('usuariosRegistrados', JSON.stringify(usuarios));
         }
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. Herramienta para guardar el progreso de los niveles
     function registrarCheckpointCompletado(idioma, unidad, cp) {
         const usuarios = obtenerUsuariosRegistrados();
-        const index = usuarios.findIndex(user => user.nombre === usuarioActivoNombre);
+        const index = usuarios.findIndex(user => user.email === usuarioActivo);
 
         if (index !== -1) {
             // Si el usuario no tiene la propiedad 'progreso', se la creamos
