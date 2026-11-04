@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Si todo es correcto, guardamos la sesión y redirigimos al dashboard
-        guardarUsuarioActivo(usuarioValido.nombre);
+        guardarUsuarioActivo(usuarioValido.email);
         window.location.href = 'dashboard.html';
     });
 });

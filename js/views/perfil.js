@@ -3,15 +3,15 @@ import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from '
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Validar sesión activa
-    const usuarioActivoNombre = obtenerUsuarioActivo();
-    if (!usuarioActivoNombre) {
+    const usuarioActivo = obtenerUsuarioActivo();
+    if (!usuarioActivo) {
         window.location.href = 'index.html';
         return;
     }
 
     // 2. Obtener datos del usuario desde el array de registrados
     const usuarios = obtenerUsuariosRegistrados();
-    const usuarioActual = usuarios.find(user => user.nombre === usuarioActivoNombre);
+    const usuarioActual = usuarios.find(user => user.email === usuarioActivo);
 
     if (!usuarioActual) {
         cerrarSesion();

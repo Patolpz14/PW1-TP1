@@ -3,16 +3,16 @@ import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from '
 
 document.addEventListener('DOMContentLoaded', () => {
     // Guardado de ruta: Si no hay usuario activo, lo regresamos al login
-    const usuarioActivoNombre = obtenerUsuarioActivo();
+    const usuarioActivo = obtenerUsuarioActivo();
 
-    if (!usuarioActivoNombre) {
+    if (!usuarioActivo) {
         window.location.href = 'index.html';
         return;
     }
 
     // Busqueda de  los datos del usuario en el storage
     const usuarios = obtenerUsuariosRegistrados();
-    const usuarioActual = usuarios.find(user => user.nombre === usuarioActivoNombre);
+    const usuarioActual = usuarios.find(user => user.email === usuarioActivo);
 
     if (!usuarioActual) {
         cerrarSesion();

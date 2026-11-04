@@ -1,18 +1,18 @@
 // js/views/tienda.js
-import { obtenerUsuarioActivo, obtenerUsuariosRegistrados } from '../services/storage.js';
+import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from '../services/storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. VALIDACIÓN DE SESIÓN (Seguridad)
     // Si alguien entra a tienda.html sin loguearse, lo pateamos al index
-    const usuarioActivoNombre = obtenerUsuarioActivo();
-    if (!usuarioActivoNombre) {
+    const usuarioActivo = obtenerUsuarioActivo();
+    if (!usuarioActivo) {
         window.location.href = 'index.html';
         return;
     }
 
     // 2. CONEXIÓN CON LA BASE DE DATOS
     const usuarios = obtenerUsuariosRegistrados();
-    const usuarioActual = usuarios.find(user => user.nombre === usuarioActivoNombre);
+    const usuarioActual = usuarios.find(user => user.email === usuarioActivo);
 
     if (!usuarioActual) {
         window.location.href = 'index.html';
@@ -68,6 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
+    if (btnCerrarSesion) {
+        btnCerrarSesion.addEventListener('click', (e) => {
+            e.preventDefault();
+            cerrarSesion();
+            window.location.href = 'index.html';
+        });
+    }
+
 
     // 6. INICIALIZACIÓN
     actualizarInterfaz();

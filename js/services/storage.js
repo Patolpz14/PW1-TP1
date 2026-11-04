@@ -23,7 +23,7 @@ export function registrarUsuario(nuevoUsuario) {
         estadisticas: {
             racha: 0,
             xp: 0,
-            liga: "Novato"
+            liga: "bronce"
         }
     };
     usuarios.push(usuarioConEstructuraBase);
@@ -47,7 +47,7 @@ export function validarCredenciales(usuarioOEmail, password) {
 
     // CORRECCIÓN: Se reemplazó user.correo por user.email
     const usuarioEncontrado = usuarios.find(user =>
-        (user.usuario === usuarioOEmail || user.email === usuarioOEmail) && user.password === password
+        (user.email === usuarioOEmail) && user.password === password
     );
 
     return usuarioEncontrado || null;
@@ -57,7 +57,7 @@ export function actualizarPassword(usuarioOEmail, nuevaPassword) {
     const usuarios = obtenerUsuariosRegistrados();
 
     // CORRECCIÓN: Se reemplazó user.correo por user.email
-    const indice = usuarios.findIndex(user => user.usuario === usuarioOEmail || user.email === usuarioOEmail);
+    const indice = usuarios.findIndex(user => user.email === usuarioOEmail);
 
     if (indice === -1) {
         return false; // No se encontró el usuario

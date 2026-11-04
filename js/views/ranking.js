@@ -1,5 +1,5 @@
 // js/views/ranking.js
-import { obtenerUsuariosRegistrados, obtenerUsuarioActivo } from '../services/storage.js';
+import { obtenerUsuariosRegistrados, obtenerUsuarioActivo, cerrarSesion } from '../services/storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const cuerpoRanking = document.getElementById('cuerpo-ranking');
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 2. FILTRAMOS los usuarios que pertenecen estrictamente a la liga seleccionada
         // Si el usuario no tiene la propiedad 'liga' definida, por defecto lo mandamos a 'bronce'
         const usuariosDeLiga = usuarios.filter(usuario => {
-            const ligaUsuario = usuario.liga || 'bronce';
+            const ligaUsuario = usuario.estadisticas?.liga || 'bronce';
             return ligaUsuario === ligaSeleccionada;
         });
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 5. Generamos las filas dinámicamente para los usuarios de esta liga
         usuariosDeLiga.forEach((usuario, index) => {
             const puesto = index + 1;
-            const xp = usuario.estadisticas?.xp || usuario.xp || 0;
+            const xp = usuario.estadisticas?.xp || 0;
             const nombre = usuario.nombre || usuario.email.split('@')[0];
             const esUsuarioActual = usuarioActivo && usuario.email === usuarioActivo.email;
 
@@ -85,6 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 tituloLiga.textContent = `🏆 Tabla de Clasificación - ${nombreLigaTexto}`;
             }
             renderizarRanking();
+        });
+    }
+
+    const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
+    if (btnCerrarSesion) {
+        btnCerrarSesion.addEventListener('click', (e) => {
+            e.preventDefault();
+            cerrarSesion();
+            window.location.href = 'index.html';
         });
     }
 

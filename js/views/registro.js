@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const usuariosRegistrados = obtenerUsuariosRegistrados();
-        const usuarioExiste = usuariosRegistrados.some(user => user.usuario === usuarioVal || user.email === usuarioVal);
+        const usuarioExiste = usuariosRegistrados.some(user => user.email === usuarioVal);
 
         if (usuarioExiste) {
             alert('Este usuario o correo ya está registrado. Prueba iniciando sesión.');
@@ -109,13 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const nuevoUsuario = {
             nombre: nombreVal,
-            usuario: usuarioVal,
             email: usuarioVal,
             password: passwordVal
         };
 
         registrarUsuario(nuevoUsuario);
-        guardarUsuarioActivo(nombreVal);
+        guardarUsuarioActivo(usuarioVal);
 
         alert(`¡Cuenta creada con éxito, ${nombreVal}! Bienvenido a Vocablo.`);
         window.location.href = 'dashboard.html';
