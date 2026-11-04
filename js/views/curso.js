@@ -3,15 +3,14 @@ import { baseDeCursos } from '../models/datos-cursos.js';
 import { obtenerUsuarioActivo, obtenerUsuariosRegistrados } from '../services/storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const usuarioActivoEmail = obtenerUsuarioActivo(); // Trae el email
-    if (!usuarioActivoEmail) {
+    const usuarioActivo = obtenerUsuarioActivo();
+    if (!usuarioActivo) {
         window.location.href = 'index.html';
         return;
     }
 
     const usuarios = obtenerUsuariosRegistrados();
-    // CORRECCIÓN: Buscamos por email, no por nombre
-    const usuarioData = usuarios.find(u => u.email === usuarioActivoEmail);
+    const usuarioData = usuarios.find(u => u.email === usuarioActivo);
     const xpReal = usuarioData ? usuarioData.estadisticas.xp : 0;
 
     const parametrosUrl = new URLSearchParams(window.location.search);

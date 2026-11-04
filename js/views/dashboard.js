@@ -1,8 +1,7 @@
-// js/dashboard.js
 import { obtenerUsuarioActivo, obtenerUsuariosRegistrados, cerrarSesion } from '../services/storage.js';
+import { baseDeCursos } from '../models/datos-cursos.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Guardado de ruta: Si no hay usuario activo, lo regresamos al login
     const usuarioActivo = obtenerUsuarioActivo();
 
     if (!usuarioActivo) {
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Busqueda de  los datos del usuario en el storage
     const usuarios = obtenerUsuariosRegistrados();
     const usuarioActual = usuarios.find(user => user.email === usuarioActivo);
 
@@ -20,14 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    //  Se inyecta el nombre real del usuario en el span de bienvenida
     const spanNombre = document.getElementById('nombre-usuario');
     if (spanNombre) {
         spanNombre.textContent = usuarioActual.nombre;
     }
 
-    // Renderizamos dinámicamente los 4 cursos con sus 0% iniciales
     const grillaCursos = document.getElementById('grilla-cursos');
+
     if (grillaCursos && usuarioActual.cursos) {
         grillaCursos.innerHTML = '';
 
@@ -35,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalNiveles = 9;
 
         usuarioActual.cursos.forEach(curso => {
+<<<<<<< HEAD
             // 1. Buscamos cuántos niveles completó de este idioma específico
             let nivelesCompletados = 0;
             if (usuarioActual.progreso && usuarioActual.progreso[curso.id]) {
@@ -43,6 +41,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 2. Calculamos el porcentaje exacto y lo redondeamos
             const porcentaje = Math.round((nivelesCompletados / totalNiveles) * 100);
+=======
+            const datosCurso = baseDeCursos[curso.id];
+
+            if (!datosCurso) {
+                console.error(`No se encontraron datos para el curso "${curso.id}".`);
+                return;
+            }
+
+            const totalCheckpoints = Object.values(datosCurso.unidades)
+                .reduce((total, unidad) => total + Object.keys(unidad.checkpoints).length, 0);
+
+            const checkpointsCompletados =
+                usuarioActual.progreso?.[curso.id]?.length ?? 0;
+
+            const porcentaje = totalCheckpoints > 0
+                ? Math.round((checkpointsCompletados / totalCheckpoints) * 100)
+                : 0;
+>>>>>>> e3ad8c12649741787ddac74ee06608d46a816631
 
             const tarjeta = document.createElement('div');
             tarjeta.classList.add('tarjeta-curso');
@@ -59,43 +75,42 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <span>${porcentaje}% completado</span>
                 </div>
-                <a href="curso.html?idioma=${curso.id}" class="btn-continuar" style="display: block; text-align: center; text-decoration: none;">Empezar</a>
+                <a href="curso.html?idioma=${encodeURIComponent(curso.id)}" class="btn-continuar">Empezar</a>
             `;
 
             grillaCursos.appendChild(tarjeta);
         });
 
-
-        // Renderizamos las estadísticas iniciales en #lista-estadisticas
         const listaEstadisticas = document.getElementById('lista-estadisticas');
+
         if (listaEstadisticas && usuarioActual.estadisticas) {
             listaEstadisticas.innerHTML = `
-            <li class="stat-item">
-                <span class="stat-icono">🔥</span>
-                <div class="stat-info">
-                    <strong>Racha</strong>
-                    <p>${usuarioActual.estadisticas.racha} días</p>
-                </div>
-            </li>
-            <li class="stat-item">
-                <span class="stat-icono">⚡</span>
-                <div class="stat-info">
-                    <strong>Experiencia</strong>
-                    <p>${usuarioActual.estadisticas.xp} XP</p>
-                </div>
-            </li>
-            <li class="stat-item">
-                <span class="stat-icono">🏆</span>
-                <div class="stat-info">
-                    <strong>Liga Actual</strong>
-                    <p>${usuarioActual.estadisticas.liga}</p>
-                </div>
-            </li>
-        `;
+                <li class="stat-item">
+                    <span class="stat-icono">🔥</span>
+                    <div class="stat-info">
+                        <strong>Racha</strong>
+                        <p>${usuarioActual.estadisticas.racha} días</p>
+                    </div>
+                </li>
+                <li class="stat-item">
+                    <span class="stat-icono">⚡</span>
+                    <div class="stat-info">
+                        <strong>Experiencia</strong>
+                        <p>${usuarioActual.estadisticas.xp} XP</p>
+                    </div>
+                </li>
+                <li class="stat-item">
+                    <span class="stat-icono">🏆</span>
+                    <div class="stat-info">
+                        <strong>Liga Actual</strong>
+                        <p>${usuarioActual.estadisticas.liga}</p>
+                    </div>
+                </li>
+            `;
         }
 
-        // Manejo del botón de cerrar sesión
         const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
+
         if (btnCerrarSesion) {
             btnCerrarSesion.addEventListener('click', () => {
                 cerrarSesion();
