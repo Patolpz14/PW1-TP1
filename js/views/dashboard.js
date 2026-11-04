@@ -53,20 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
             grillaCursos.appendChild(tarjeta);
         });
 
-        // Eventos para los botones de empezar curso
-        const botonesContinuar = grillaCursos.querySelectorAll('.btn-continuar');
-        botonesContinuar.forEach(boton => {
-            boton.addEventListener('click', (e) => {
-                const cursoId = e.target.getAttribute('data-id');
-                window.location.href = `curso-${cursoId}.html`;
-            });
-        });
-    }
 
-    // Renderizamos las estadísticas iniciales en #lista-estadisticas
-    const listaEstadisticas = document.getElementById('lista-estadisticas');
-    if (listaEstadisticas && usuarioActual.estadisticas) {
-        listaEstadisticas.innerHTML = `
+        // Renderizamos las estadísticas iniciales en #lista-estadisticas
+        const listaEstadisticas = document.getElementById('lista-estadisticas');
+        if (listaEstadisticas && usuarioActual.estadisticas) {
+            listaEstadisticas.innerHTML = `
             <li class="stat-item">
                 <span class="stat-icono">🔥</span>
                 <div class="stat-info">
@@ -89,14 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </li>
         `;
-    }
+        }
 
-    // Manejo del botón de cerrar sesión
-    const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
-    if (btnCerrarSesion) {
-        btnCerrarSesion.addEventListener('click', () => {
-            cerrarSesion();
-            window.location.href = 'index.html';
-        });
-    }
-});
+        // Manejo del botón de cerrar sesión
+        const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
+        if (btnCerrarSesion) {
+            btnCerrarSesion.addEventListener('click', () => {
+                cerrarSesion();
+                window.location.href = 'index.html';
+            });
+        }
+    });

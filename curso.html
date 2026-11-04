@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocablo - Ruta de Aprendizaje</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/cursos.css">
+</head>
+
+<body>
+
+    <!-- CABECERA SUPERIOR -->
+    <header class="cabecera-dashboard">
+        <nav class="nav-principal">
+            <a href="dashboard.html" class="enlace-volver">← Volver al Panel</a>
+            <!-- El ID "titulo-curso" permite a JS inyectar el nombre dinámico -->
+            <h1 id="titulo-curso" class="titulo-curso">Cargando curso...</h1>
+            <!-- El ID "estadistica-xp" nos servirá para mostrar los puntos reales del usuario -->
+            <div id="estadistica-xp" class="estadistica-rapida">⭐ ... XP</div>
+        </nav>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL: MAPA DE LECCIONES -->
+    <!-- El ID "contenedor-unidades" es donde JS inyectará todas las <section> y <ol> respetando tus clases CSS -->
+    <main id="contenedor-unidades" class="contenedor-ruta">
+        <!-- El contenido se generará desde js/views/curso.js -->
+    </main>
+
+    <!-- Conectamos el motor del menú -->
+    <script type="module" src="js/views/curso.js"></script>
+</body>
+
+</html>
