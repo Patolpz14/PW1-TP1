@@ -158,7 +158,7 @@
 }
 
 /* Barra de progreso (Usando tu #3b82f6) */
-.barra-progreso-fondo {
+/*.barra-progreso-fondo {
     background-color: #e5e7eb;
     border-radius: 10px;
     height: 12px;
@@ -172,6 +172,30 @@
     height: 100%;
     border-radius: 10px;
     transition: width 0.4s ease;
+}*/
+
+/* El contenedor gris de fondo */
+.barra-progreso-fondo {
+    width: 100%;
+    height: 12px;
+    /* Altura necesaria para que se vea */
+    background-color: #e5e7eb;
+    /* Gris claro */
+    border-radius: 10px;
+    overflow: hidden;
+    /* Evita que el relleno se salga de los bordes redondeados */
+    margin: 10px 0;
+}
+
+/* El relleno dinámico de color */
+.barra-progreso-nivel {
+    height: 100%;
+    /* Toma la altura del contenedor padre */
+    background-color: #f1a36f;
+    /* El color naranja o azul de tu app */
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+    /* Le da una animación suave al cargar */
 }
 
 .curso-body span {

@@ -31,7 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (grillaCursos && usuarioActual.cursos) {
         grillaCursos.innerHTML = '';
 
+        // El total de niveles por idioma es 9 (3 unidades de 3 checkpoints)
+        const totalNiveles = 9;
+
         usuarioActual.cursos.forEach(curso => {
+            // 1. Buscamos cuántos niveles completó de este idioma específico
+            let nivelesCompletados = 0;
+            if (usuarioActual.progreso && usuarioActual.progreso[curso.id]) {
+                nivelesCompletados = usuarioActual.progreso[curso.id].length;
+            }
+
+            // 2. Calculamos el porcentaje exacto y lo redondeamos
+            const porcentaje = Math.round((nivelesCompletados / totalNiveles) * 100);
+
             const tarjeta = document.createElement('div');
             tarjeta.classList.add('tarjeta-curso');
 
@@ -43,9 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="curso-body">
                     <p>Nivel: <strong>${curso.nivel}</strong></p>
                     <div class="barra-progreso-fondo">
-                        <div class="barra-progreso-nivel" style="width: ${curso.progreso}%;"></div>
+                        <div class="barra-progreso-nivel" style="width: ${porcentaje}%;"></div>
                     </div>
-                    <span>${curso.progreso}% completado</span>
+                    <span>${porcentaje}% completado</span>
                 </div>
                 <a href="curso.html?idioma=${curso.id}" class="btn-continuar" style="display: block; text-align: center; text-decoration: none;">Empezar</a>
             `;

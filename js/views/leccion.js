@@ -134,19 +134,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 7. Herramienta interna para actualizar la base de datos
-    function sumarXP(cantidadXP) {
+    // Función para sumar y GUARDAR la XP en la base de datos global
+    function sumarXP(puntosGanados) {
+        const usuarioActivoEmail = obtenerUsuarioActivo(); // Trae el email
         const usuarios = obtenerUsuariosRegistrados();
-        const index = usuarios.findIndex(user => user.nombre === usuarioActivoNombre);
-        if (index !== -1) {
-            usuarios[index].estadisticas.xp += cantidadXP;
-            // Evaluamos la liga acá mismo para aprovechar el impulso
-            const xpTotal = usuarios[index].estadisticas.xp;
-            if (xpTotal >= 3000) usuarios[index].estadisticas.liga = "Oro";
-            else if (xpTotal >= 1000) usuarios[index].estadisticas.liga = "Plata";
-            else usuarios[index].estadisticas.liga = "Bronce";
 
+        // Buscamos al usuario correcto
+        const index = usuarios.findIndex(user => user.email === usuarioActivoEmail);
+
+        if (index !== -1) {
+            // Por precaución, si el usuario es muy nuevo y no tiene la estructura de estadísticas, se la creamos
+            if (!usuarios[index].estadisticas) {
+                usuarios[index].estadisticas = { xp: 0, racha: 0, liga: 'Bronce' };
+            }
+
+            // Le sumamos los puntos nuevos a su total histórico
+            usuarios[index].estadisticas.xp += puntosGanados;
+
+            // Guardamos TODA la base de datos actualizada en el navegador
             localStorage.setItem('usuariosRegistrados', JSON.stringify(usuarios));
+
+            // Opcional: Si en tu HTML de leccion.html tenés un elemento para mostrar la XP actual, lo actualizamos visualmente
+            const xpVisual = document.getElementById('xp-actual'); // Asegurate de que el ID coincida con tu HTML
+            if (xpVisual) {
+                xpVisual.textContent = `${usuarios[index].estadisticas.xp} XP`;
+            }
         }
     }
 
