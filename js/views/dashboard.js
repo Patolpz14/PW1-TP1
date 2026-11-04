@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <span>${curso.progreso}% completado</span>
                 </div>
-                <button class="btn-continuar" data-id="${curso.id}">Empezar</button>
+                <a href="curso.html?idioma=${curso.id}" class="btn-continuar" style="display: block; text-align: center; text-decoration: none;">Empezar</a>
             `;
 
             grillaCursos.appendChild(tarjeta);
@@ -90,4 +90,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = 'index.html';
             });
         }
-    });
+    }
+});

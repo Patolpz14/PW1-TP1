@@ -3,21 +3,21 @@ import { baseDeCursos } from '../models/datos-cursos.js';
 import { obtenerUsuarioActivo, obtenerUsuariosRegistrados } from '../services/storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const usuarioActivoNombre = obtenerUsuarioActivo();
-    if (!usuarioActivoNombre) {
+    const usuarioActivoEmail = obtenerUsuarioActivo(); // Trae el email
+    if (!usuarioActivoEmail) {
         window.location.href = 'index.html';
         return;
     }
 
     const usuarios = obtenerUsuariosRegistrados();
-    const usuarioData = usuarios.find(u => u.nombre === usuarioActivoNombre);
+    // CORRECCIÓN: Buscamos por email, no por nombre
+    const usuarioData = usuarios.find(u => u.email === usuarioActivoEmail);
     const xpReal = usuarioData ? usuarioData.estadisticas.xp : 0;
 
-    // Traemos el progreso del usuario para este idioma (si no tiene, creamos un array vacío)
     const parametrosUrl = new URLSearchParams(window.location.search);
     const idiomaId = parametrosUrl.get('idioma');
 
-    const progresoUsuario = (usuarioData.progreso && usuarioData.progreso[idiomaId])
+    const progresoUsuario = (usuarioData && usuarioData.progreso && usuarioData.progreso[idiomaId])
         ? usuarioData.progreso[idiomaId]
         : [];
 
