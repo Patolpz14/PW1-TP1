@@ -13,11 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const usuarioData = usuarios.find(u => u.email === usuarioActivo);
     const xpReal = usuarioData ? usuarioData.estadisticas.xp : 0;
 
-    // Traemos el progreso del usuario para este idioma (si no tiene, creamos un array vacío)
     const parametrosUrl = new URLSearchParams(window.location.search);
     const idiomaId = parametrosUrl.get('idioma');
 
-    const progresoUsuario = (usuarioData.progreso && usuarioData.progreso[idiomaId])
+    const progresoUsuario = (usuarioData && usuarioData.progreso && usuarioData.progreso[idiomaId])
         ? usuarioData.progreso[idiomaId]
         : [];
 

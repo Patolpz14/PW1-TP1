@@ -152,23 +152,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 8. Herramienta para guardar el progreso de los niveles
     function registrarCheckpointCompletado(idioma, unidad, cp) {
+        const usuarioActivo = obtenerUsuarioActivo(); // Trae el email
         const usuarios = obtenerUsuariosRegistrados();
         const index = usuarios.findIndex(user => user.email === usuarioActivo);
 
         if (index !== -1) {
-            // Si el usuario no tiene la propiedad 'progreso', se la creamos
             if (!usuarios[index].progreso) usuarios[index].progreso = {};
-            // Si no tiene array para este idioma, se lo creamos
             if (!usuarios[index].progreso[idioma]) usuarios[index].progreso[idioma] = [];
 
             const idCheckpoint = `${unidad}-${cp}`; // Ej: "u1-cp1"
 
-            // Solo lo guardamos si no lo había completado antes
             if (!usuarios[index].progreso[idioma].includes(idCheckpoint)) {
                 usuarios[index].progreso[idioma].push(idCheckpoint);
                 localStorage.setItem('usuariosRegistrados', JSON.stringify(usuarios));
             }
         }
     }
-
 });
